@@ -1,9 +1,9 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from .models import UserProfile, Transaction
 from django.contrib.auth.models import User
 from django.contrib import messages
-from .forms import CustomerCreationForm
+from .forms import CustomerCreationForm, CustomerUpdateForm
 
 #******************** || Admin Views || **********************
 #@login_required
@@ -17,7 +17,6 @@ def see_all_customers(request):
 def see_all_transactions(request):
     # Logic to retrieve and display all transactions
     pass
-
 
 
 def login_to_customer(request):
@@ -39,22 +38,32 @@ def add_customer(request):
     return render(request, 'add_customer.html', {'form': form})
 
 
-
-
 #@login_required
 def delete_customer(request, customer_id):
-    # Logic to delete a customer based on customer_id
-    # Redirect to admin dashboard or display success/error messages
-    pass  # Your implementation here
+    customer = get_object_or_404(UserProfile, id=customer_id)
+    
+    if request.method == 'POST':
+        customer.user.delete()  # Delete the associated User object
+        messages.success(request, 'Customer deleted successfully!')
+        return redirect('see_all_customers')  # Redirect to see_all_customers after successful deletion
+    
+    return render(request, 'delete_customer.html', {'customer': customer})
+
 
 #@login_required
 def update_customer(request, customer_id):
-    # Logic to update customer details based on customer_id
+    customer = get_object_or_404(UserProfile, id=customer_id)
     if request.method == 'POST':
-        # Handle form data and update customer details
-        # Redirect to admin dashboard or display success/error messages
-        pass  # Your implementation here
-    return render(request, 'update_customer.html')
+        form = CustomerUpdateForm(request.POST, instance=customer)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Customer details updated successfully!')
+            return redirect('see_all_customers')  # Redirect to see_all_customers after successful update
+    else:
+        form = CustomerUpdateForm(instance=customer)
+    
+    return render(request, 'update_customer.html', {'form': form, 'customer': customer})
+
 """
 
 @login_required
