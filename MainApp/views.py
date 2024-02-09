@@ -3,8 +3,9 @@ from django.contrib.auth.decorators import login_required
 from .models import UserProfile, Transaction
 from django.contrib.auth.models import User
 from django.contrib import messages
+from .forms import CustomerCreationForm
 
-# Admin Views
+#******************** || Admin Views || **********************
 #@login_required
 def admin_dashboard(request):
     return render(request, 'admin_dashboard.html')
@@ -17,13 +18,26 @@ def see_all_transactions(request):
     # Logic to retrieve and display all transactions
     pass
 
-def add_new_user(request):
-    # Logic to add a new user
-    pass
+
 
 def login_to_user(request):
     # Logic to login to a user (without a password)
     pass
+
+
+#@login_required
+def add_customer(request):
+    if request.method == 'POST':
+        form = CustomerCreationForm(request.POST)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'New customer added successfully!')
+            return redirect('admin_dashboard')  # Redirect to admin dashboard after successful addition
+    else:
+        form = CustomerCreationForm()
+    
+    return render(request, 'add_customer.html', {'form': form})
+
 """
 @login_required
 def add_customer(request):
