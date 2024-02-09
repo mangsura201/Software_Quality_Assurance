@@ -19,11 +19,6 @@ def see_all_transactions(request):
     pass
 
 
-def login_to_customer(request):
-    # Logic to login to a user (without a password)
-    pass
-
-
 #@login_required
 def add_customer(request):
     if request.method == 'POST':
@@ -125,3 +120,4 @@ def request_zakat(request):
 
 # Real-Time Chat Views (if using Django Channels or similar)
 # Implement chat functionality for both admin and customers"""
+
