@@ -10,9 +10,9 @@ from .forms import CustomerCreationForm
 def admin_dashboard(request):
     return render(request, 'admin_dashboard.html')
 
-def see_all_users(request):
-    # Logic to retrieve and display all users
-    pass
+def see_all_customers(request):
+    customers = UserProfile.objects.all()
+    return render(request, 'see_all_customers.html', {'customers': customers})
 
 def see_all_transactions(request):
     # Logic to retrieve and display all transactions
@@ -20,7 +20,7 @@ def see_all_transactions(request):
 
 
 
-def login_to_user(request):
+def login_to_customer(request):
     # Logic to login to a user (without a password)
     pass
 
@@ -38,31 +38,25 @@ def add_customer(request):
     
     return render(request, 'add_customer.html', {'form': form})
 
-"""
-@login_required
-def add_customer(request):
-    # Logic to add a new customer
-    if request.method == 'POST':
-        # Handle form data and create a new customer profile
-        # Redirect to admin dashboard or display success/error messages
-        pass  # Your implementation here
-    return render(request, 'add_customer.html', context)
 
-@login_required
+
+
+#@login_required
 def delete_customer(request, customer_id):
     # Logic to delete a customer based on customer_id
     # Redirect to admin dashboard or display success/error messages
     pass  # Your implementation here
 
-@login_required
+#@login_required
 def update_customer(request, customer_id):
     # Logic to update customer details based on customer_id
     if request.method == 'POST':
         # Handle form data and update customer details
         # Redirect to admin dashboard or display success/error messages
         pass  # Your implementation here
-    return render(request, 'update_customer.html', context)"""
+    return render(request, 'update_customer.html')
 """
+
 @login_required
 def send_money(request):
     # Logic to send money to a customer account
