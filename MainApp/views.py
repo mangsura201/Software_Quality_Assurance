@@ -3,7 +3,11 @@ from django.contrib.auth.decorators import login_required
 from .models import UserProfile, Transaction
 from django.contrib.auth.models import User
 from django.contrib import messages
+<<<<<<< HEAD
 from .forms import CustomerCreationForm, CustomerUpdateForm
+=======
+from .forms import CustomerCreationForm
+>>>>>>> a6d35c59fa59a3f853a6bb86e2066268f7f1cc94
 
 #******************** || Admin Views || **********************
 #@login_required
@@ -19,6 +23,7 @@ def see_all_transactions(request):
     pass
 
 
+<<<<<<< HEAD
 def login_to_customer(request):
     # Logic to login to a user (without a password)
     pass
@@ -64,6 +69,44 @@ def update_customer(request, customer_id):
     
     return render(request, 'update_customer.html', {'form': form, 'customer': customer})
 
+=======
+
+def login_to_customer(request):
+    # Logic to login to a user (without a password)
+    pass
+
+
+#@login_required
+def add_customer(request):
+    if request.method == 'POST':
+        form = CustomerCreationForm(request.POST)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'New customer added successfully!')
+            return redirect('admin_dashboard')  # Redirect to admin dashboard after successful addition
+    else:
+        form = CustomerCreationForm()
+    
+    return render(request, 'add_customer.html', {'form': form})
+
+
+
+
+#@login_required
+def delete_customer(request, customer_id):
+    # Logic to delete a customer based on customer_id
+    # Redirect to admin dashboard or display success/error messages
+    pass  # Your implementation here
+
+#@login_required
+def update_customer(request, customer_id):
+    # Logic to update customer details based on customer_id
+    if request.method == 'POST':
+        # Handle form data and update customer details
+        # Redirect to admin dashboard or display success/error messages
+        pass  # Your implementation here
+    return render(request, 'update_customer.html')
+>>>>>>> a6d35c59fa59a3f853a6bb86e2066268f7f1cc94
 """
 
 @login_required

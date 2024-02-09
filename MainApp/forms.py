@@ -19,6 +19,7 @@ class CustomerCreationForm(UserCreationForm):
             user.save()
             UserProfile.objects.create(user=user, bank_account_no=bank_account_no, phone_no=phone_no )
         return user
+<<<<<<< HEAD
 
 
 class CustomerUpdateForm(forms.ModelForm):
@@ -44,3 +45,5 @@ class CustomerUpdateForm(forms.ModelForm):
         if commit:
             user.save()
             return super(CustomerUpdateForm, self).save(commit=commit)
+=======
+>>>>>>> a6d35c59fa59a3f853a6bb86e2066268f7f1cc94
