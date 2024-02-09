@@ -5,6 +5,7 @@ from .models import UserProfile
 
 class CustomerCreationForm(UserCreationForm):
     bank_account_no = forms.CharField(max_length=20, required=True)
+    phone_no = forms.CharField(max_length=15, required=True)
 
     class Meta:
         model = User
@@ -13,7 +14,8 @@ class CustomerCreationForm(UserCreationForm):
     def save(self, commit=True):
         user = super().save(commit=False)
         bank_account_no = self.cleaned_data['bank_account_no']
+        phone_no = self.cleaned_data['phone_no']
         if commit:
             user.save()
-            UserProfile.objects.create(user=user, bank_account_no=bank_account_no)
+            UserProfile.objects.create(user=user, bank_account_no=bank_account_no, phone_no=phone_no )
         return user
