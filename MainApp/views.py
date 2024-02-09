@@ -1,54 +1,71 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from .models import UserProfile, Transaction
 from django.contrib.auth.models import User
 from django.contrib import messages
+from .forms import CustomerCreationForm, CustomerUpdateForm
 
-# Admin Views
+#******************** || Admin Views || **********************
 #@login_required
 def admin_dashboard(request):
     return render(request, 'admin_dashboard.html')
 
-def see_all_users(request):
-    # Logic to retrieve and display all users
-    pass
+def see_all_customers(request):
+    customers = UserProfile.objects.all()
+    return render(request, 'see_all_customers.html', {'customers': customers})
 
 def see_all_transactions(request):
     # Logic to retrieve and display all transactions
     pass
 
-def add_new_user(request):
-    # Logic to add a new user
-    pass
 
-def login_to_user(request):
+def login_to_customer(request):
     # Logic to login to a user (without a password)
     pass
-"""
-@login_required
+
+
+#@login_required
 def add_customer(request):
-    # Logic to add a new customer
     if request.method == 'POST':
-        # Handle form data and create a new customer profile
-        # Redirect to admin dashboard or display success/error messages
-        pass  # Your implementation here
-    return render(request, 'add_customer.html', context)
+        form = CustomerCreationForm(request.POST)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'New customer added successfully!')
+            return redirect('admin_dashboard')  # Redirect to admin dashboard after successful addition
+    else:
+        form = CustomerCreationForm()
+    
+    return render(request, 'add_customer.html', {'form': form})
 
-@login_required
+
+#@login_required
 def delete_customer(request, customer_id):
-    # Logic to delete a customer based on customer_id
-    # Redirect to admin dashboard or display success/error messages
-    pass  # Your implementation here
-
-@login_required
-def update_customer(request, customer_id):
-    # Logic to update customer details based on customer_id
+    customer = get_object_or_404(UserProfile, id=customer_id)
+    
     if request.method == 'POST':
-        # Handle form data and update customer details
-        # Redirect to admin dashboard or display success/error messages
-        pass  # Your implementation here
-    return render(request, 'update_customer.html', context)"""
+        customer.user.delete()  # Delete the associated User object
+        messages.success(request, 'Customer deleted successfully!')
+        return redirect('see_all_customers')  # Redirect to see_all_customers after successful deletion
+    
+    return render(request, 'delete_customer.html', {'customer': customer})
+
+
+#@login_required
+def update_customer(request, customer_id):
+    customer = get_object_or_404(UserProfile, id=customer_id)
+    if request.method == 'POST':
+        form = CustomerUpdateForm(request.POST, instance=customer)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Customer details updated successfully!')
+            return redirect('see_all_customers')  # Redirect to see_all_customers after successful update
+    else:
+        form = CustomerUpdateForm(instance=customer)
+    
+    return render(request, 'update_customer.html', {'form': form, 'customer': customer})
+
 """
+
 @login_required
 def send_money(request):
     # Logic to send money to a customer account
