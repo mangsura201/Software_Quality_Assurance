@@ -3,10 +3,17 @@ from django.contrib.auth.decorators import login_required
 from .models import UserProfile, Transaction
 from django.contrib.auth.models import User
 from django.contrib import messages
+<<<<<<< HEAD
 from .forms import CustomerCreationForm, CustomerUpdateForm, ProfileUpdateForm,MoneyTransferForm
 from django.contrib.auth import logout
 from .models import UserProfile, Transaction
 
+=======
+from .forms import CustomerCreationForm, CustomerUpdateForm, ProfileUpdateForm
+from django.contrib.auth import logout
+
+
+>>>>>>> 510cdd12fdf308bc09cfeef1c7100c64eff35677
 def home(request):
     return render(request, 'home.html')
 #******************** || Admin Views || **********************
@@ -162,6 +169,7 @@ def update_profile(request):
 
 def transaction_details(request):
     pass
+<<<<<<< HEAD
 
 @login_required
 def money_transfer(request):
@@ -209,6 +217,10 @@ def money_transfer(request):
 
     return render(request, 'money_transfer.html', {'form': form})
 
+=======
+def send_money(request):
+    pass
+>>>>>>> 510cdd12fdf308bc09cfeef1c7100c64eff35677
 def add_money(request):
     pass
 def chat_with_admin(request):

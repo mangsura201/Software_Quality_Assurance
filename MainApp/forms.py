@@ -80,6 +80,7 @@ class ProfileUpdateForm(forms.ModelForm):
         for field_name in self.Meta.exclude:
             self.fields[field_name].disabled = True  # Disabling excluded fields
 """
+<<<<<<< HEAD
 
 
 class MoneyTransferForm(forms.Form):
@@ -90,3 +91,5 @@ class MoneyTransferForm(forms.Form):
     sender_bank_account_no = forms.CharField(max_length=150, required=True)
     sender_username = forms.CharField(max_length=150, required=True)
     password = forms.CharField(widget=forms.PasswordInput(), required=True)
+=======
+>>>>>>> 510cdd12fdf308bc09cfeef1c7100c64eff35677

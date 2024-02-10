@@ -19,7 +19,11 @@ urlpatterns = [
     path('customer_dashboard/', views.customer_dashboard, name='customer_dashboard'),
     path('update_profile/', views.update_profile, name='update_profile'),
     path('transaction_details/', views.transaction_details, name='transaction_details'),
+<<<<<<< HEAD
     path('money_transfer/', views.money_transfer, name='money_transfer'),
+=======
+    path('send_money/', views.send_money, name='send_money'),
+>>>>>>> 510cdd12fdf308bc09cfeef1c7100c64eff35677
     path('add_money/', views.add_money, name='add_money'),
     path('chat_with_admin/', views.chat_with_admin, name='chat_with_admin'),
 
