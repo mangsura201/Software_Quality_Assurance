@@ -1,8 +1,8 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <h2>All Customers</h2>
-    <table border="1">
+    <h2 class="head-center">All Customers</h2>
+    <table class="table table-dark table-striped">
         <thead>
             <tr>
                 <th>First Name</th>
@@ -17,7 +17,7 @@
         </thead>
         <tbody>
             {% for customer in customers %}
-                <tr>
+                <tr class="table-success">
                     <td>{{ customer.user.first_name }}</td>
                     <td>{{ customer.user.last_name }}</td>
                     <td>{{ customer.user.username }}</td>
@@ -26,8 +26,8 @@
                     <td>{{ customer.bank_account_no }}</td>
                     <td>{{ customer.balance }}</td>
                     <td>
-                        <a href="{% url 'update_customer' customer.id %}">Update</a>
-                        <a href="{% url 'delete_customer' customer.id %}">Delete</a>
+                        <button class="btn btn-success" type="button"><a href="{% url 'update_customer' customer.id %}" class="no-underline">Update</a></button>
+                        <button class="btn btn-danger" type="button"><a href="{% url 'delete_customer' customer.id %}" class="no-underline">Delete</a></button>
                     </td>
                 </tr>
             {% endfor %}
