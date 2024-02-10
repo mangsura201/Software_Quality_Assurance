@@ -21,29 +21,10 @@ class CustomerCreationForm(UserCreationForm):
         return user
 
 
-class CustomerUpdateForm(forms.ModelForm):
-    first_name = forms.CharField(required=True)
-    last_name = forms.CharField(required=True)
-    email = forms.EmailField(required=True)
-
+class AddMoneyForm(forms.ModelForm):
     class Meta:
         model = UserProfile
-        fields = ['phone_no', 'balance']
-
-    def __init__(self, *args, **kwargs):
-        super(CustomerUpdateForm, self).__init__(*args, **kwargs)
-        self.fields['first_name'].initial = self.instance.user.first_name
-        self.fields['last_name'].initial = self.instance.user.last_name
-        self.fields['email'].initial = self.instance.user.email
-
-    def save(self, commit=True):
-        user = self.instance.user
-        user.first_name = self.cleaned_data['first_name']
-        user.last_name = self.cleaned_data['last_name']
-        user.email = self.cleaned_data['email']
-        if commit:
-            user.save()
-            return super(CustomerUpdateForm, self).save(commit=commit)
+        fields = ['balance']
 
 
 class ProfileUpdateForm(forms.ModelForm):
@@ -80,7 +61,6 @@ class ProfileUpdateForm(forms.ModelForm):
         for field_name in self.Meta.exclude:
             self.fields[field_name].disabled = True  # Disabling excluded fields
 """
-<<<<<<< HEAD
 
 
 class MoneyTransferForm(forms.Form):
@@ -91,5 +71,3 @@ class MoneyTransferForm(forms.Form):
     sender_bank_account_no = forms.CharField(max_length=150, required=True)
     sender_username = forms.CharField(max_length=150, required=True)
     password = forms.CharField(widget=forms.PasswordInput(), required=True)
-=======
->>>>>>> 510cdd12fdf308bc09cfeef1c7100c64eff35677
