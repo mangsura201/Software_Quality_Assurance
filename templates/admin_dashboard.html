@@ -1,12 +1,13 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <h2>Admin Dashboard</h2>
+    <h2 class="head-center">Admin Dashboard</h2>
 
-    <ul>
-        <li><a href="{% url 'see_all_customers' %}">See All Customers</a></li>
-        <li><a href="{% url 'see_all_transactions' %}">See All Transactions</a></li>
-        <li><a href="{% url 'add_customer' %}">Add New Customer</a></li>
-        <!-- You can add more options here -->
-    </ul>
+    <div class="d-grid gap-2 col-6 mx-auto">
+        <button class="btn btn-dark" type="button"><a href="{% url 'see_all_customers' %}">See All Customers</a></button>
+        <button class="btn btn-dark" type="button"><a href="{% url 'see_all_transactions' %}">See All Transactions</a></button>
+        <button class="btn btn-dark" type="button"><a href="{% url 'add_customer' %}">Add New Customer</a></button>
+        
+    </div>
+
 {% endblock %}
