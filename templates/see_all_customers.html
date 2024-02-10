@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h2 class="head-center">All Customers</h2>
+    <table class="table table-dark table-striped">
+        <thead>
+            <tr>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Username</th>
+                <th>Email</th>
+                <th>Phone No</th>
+                <th>Bank Account No</th>
+                <th>Balance</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for customer in customers %}
+                <tr class="table-success">
+                    <td>{{ customer.user.first_name }}</td>
+                    <td>{{ customer.user.last_name }}</td>
+                    <td>{{ customer.user.username }}</td>
+                    <td>{{ customer.user.email }}</td>
+                    <td>{{ customer.phone_no }}</td>
+                    <td>{{ customer.bank_account_no }}</td>
+                    <td>{{ customer.balance }}</td>
+                    <td>
+                        <button class="btn btn-success" type="button"><a href="{% url 'update_customer' customer.id %}" class="no-underline">Update</a></button>
+                        <button class="btn btn-danger" type="button"><a href="{% url 'delete_customer' customer.id %}" class="no-underline">Delete</a></button>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

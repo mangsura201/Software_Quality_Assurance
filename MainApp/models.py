@@ -8,6 +8,7 @@ from datetime import datetime
 class UserProfile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     bank_account_no = models.CharField(max_length=20, unique=True)
+    phone_no = models.CharField(max_length=15, unique=True)
     balance = models.DecimalField(max_digits=12, decimal_places=2, default=0)
 
 # Transaction Model
@@ -18,7 +19,8 @@ class Transaction(models.Model):
     date = models.DateTimeField(auto_now_add=True)
     transaction_id = models.CharField(max_length=8, unique=True)
 
-    def generate_unique_transaction_id(self):
+    @staticmethod
+    def generate_unique_transaction_id():
         # Define a function to generate a unique transaction ID
         length = 8  # Length of the transaction ID
         timestamp = str(int(datetime.timestamp(datetime.now())))  # Get current timestamp

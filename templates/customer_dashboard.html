@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+{% block content %}
+
+    <div class="container">
+        <h2 class=" head-center">Customer Dashboard</h2>
+        
+        <!-- Cards -->
+        <div class="row">
+            <!-- First Card -->
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h3 class="card-title text-center">Personal Info</h3>
+                        <p><b>First Name:</b> {{ user.first_name }}</p>
+                        <p><b>Last Name:</b> {{ user.last_name }}</p>
+                        <p><b>Username:</b> {{ user.username }}</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Second Card -->
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h3 class="card-title text-center">Contact Details</h3>
+                        <p><b>Email:</b> {{ user.email }}</p>
+                        <p><b>No:</b>  {{ user.userprofile.phone_no }}</p>
+                        <p><b>Address:</b>  {{ user.userprofile.address }}</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Third Card -->
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h3 class="card-title text-center">Account Info</h3>
+                        <p><b>Bank Account No:</b> {{ user.userprofile.bank_account_no }}</p>
+                        <p><b>Balance:</b> {{ user.userprofile.balance }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="d-grid gap-2 col-6 mx-auto">
+            <button class="btn btn-dark" type="button"><a href="{% url 'update_profile' %}" class="no-underline">Update Profile</a></button>
+            <button class="btn btn-dark" type="button"><a href="{% url 'transaction_details' %}" class="no-underline">Transaction Details</a></button>
+            <button class="btn btn-dark" type="button"><a href="{% url 'money_transfer' %}" class="no-underline">Money Transfer</a></button>
+            <button class="btn btn-dark" type="button"><a href="{% url 'add_money' %}" class="no-underline">Add Money</a></button>
+            <button class="btn btn-dark" type="button"><a href="{% url 'chat_with_admin' %}" class="no-underline">Chat with Admin</a></button>
+            <button class="btn btn-dark" type="button"><a href="{% url 'logout' %}" class="no-underline">Logout</a></button>
+        </div>
+        
+    </div>
+
+    <!-- Add your JavaScript code here if needed -->
+    <script>
+        // Add your JavaScript code here if needed
+    </script>
+{% endblock %}
