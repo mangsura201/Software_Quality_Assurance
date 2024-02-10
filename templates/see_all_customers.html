@@ -26,7 +26,8 @@
                     <td>{{ customer.bank_account_no }}</td>
                     <td>{{ customer.balance }}</td>
                     <td>
-                        <button class="btn btn-success" type="button"><a href="{% url 'add_money' customer.id %}" class="no-underline">Add Money</a></button>
+                        <button class="btn btn-primary" type="button"><a href="{% url 'add_money' customer.id %}" class="no-underline">Add Money</a></button>
+                        <button class="btn btn-warning" type="button"><a href="{% url 'transaction_details' customer.id %}" class="no-underline">See Transaction</a></button>
                         <button class="btn btn-success" type="button"><a href="{% url 'update_customer' customer.id %}" class="no-underline">Update</a></button>
                         <button class="btn btn-danger" type="button"><a href="{% url 'delete_customer' customer.id %}" class="no-underline">Delete</a></button>
                     </td>

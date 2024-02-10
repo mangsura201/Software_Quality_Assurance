@@ -3,6 +3,7 @@ from django.contrib.auth.decorators import login_required
 from .models import UserProfile, Transaction
 from django.contrib.auth.models import User
 from django.contrib import messages
+from django.contrib.auth import views as auth_views
 from .forms import CustomerCreationForm, ProfileUpdateForm,MoneyTransferForm, AddMoneyForm
 from django.contrib.auth import logout
 from .models import UserProfile, Transaction
@@ -73,6 +74,28 @@ def add_money(request, customer_id):
     else:
         form = AddMoneyForm()
     return render(request, 'add_money.html', {'form': form})
+
+
+def customer_transaction(request, customer_id):
+    customer = get_object_or_404(UserProfile, id=customer_id)
+    user_transactions = Transaction.objects.filter(
+        sender_account_no= customer.bank_account_no
+    ) | Transaction.objects.filter(
+        receiver_account_no= customer.bank_account_no
+    ).order_by('-date')  # Assuming 'date' is the field representing the transaction date
+
+    return render(request, 'customer_transaction.html', {'user_transactions': user_transactions})
+
+def see_all_transaction(request):
+    if request.user.is_superuser:  # Check if the user is an admin
+        all_transactions = Transaction.objects.all().order_by('-date')  # Retrieve all transactions
+        return render(request, 'see_all_transaction.html', {'all_transactions': all_transactions})
+    else:
+        # Handle the case where the user is not an admin (redirect or display an error)
+        # For example, redirect to another view or display an error message
+        return render(request, 'admin_dashboard.html', {'message': 'You are not authorized to view this page'})
+    
+
 #@login_required
 """def update_customer(request, customer_id):
     customer = get_object_or_404(UserProfile, id=customer_id)
@@ -149,9 +172,18 @@ def request_zakat(request):
 # Real-Time Chat Views (if using Django Channels or similar)
 # Implement chat functionality for both admin and customers"""
 #******************** || Customer Views || **********************
+def custom_login(request):
+    if request.user.is_authenticated:
+        if request.user.is_superuser:  # Check if the user is an admin
+            return redirect('admin_dashboard')  # Redirect to admin dashboard
+        else:
+            return redirect('customer_dashboard')  # Redirect to customer dashboard
+    else:
+        return redirect('login')  # Use default login view for authentication
+    
 def logout_view(request):
     logout(request)
-    return redirect('admin_dashboard')
+    return redirect('home')
 
 @login_required
 def customer_dashboard(request):
@@ -183,9 +215,6 @@ def update_profile(request):
     
     return render(request, 'update_profile.html', {'form': form})
 """
-
-def transaction_details(request):
-    pass
 
 @login_required
 def money_transfer(request):
