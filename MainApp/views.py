@@ -4,6 +4,7 @@ from .models import UserProfile, Transaction
 from django.contrib.auth.models import User
 from django.contrib import messages
 from .forms import CustomerCreationForm, CustomerUpdateForm
+from django.contrib.auth import logout
 
 #******************** || Admin Views || **********************
 #@login_required
@@ -120,4 +121,22 @@ def request_zakat(request):
 
 # Real-Time Chat Views (if using Django Channels or similar)
 # Implement chat functionality for both admin and customers"""
+def logout_view(request):
+    logout(request)
+    return redirect('admin_dashboard')
 
+#@login_required
+def customer_dashboard(request):
+    user = request.user  # Assuming user details are stored in request.user
+    return render(request, 'customer_dashboard.html', {'user': user})
+
+def update_profile(request):
+    pass
+def transaction_details(request):
+    pass
+def send_money(request):
+    pass
+def add_money(request):
+    pass
+def chat_with_admin(request):
+    pass
