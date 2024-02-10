@@ -3,17 +3,10 @@ from django.contrib.auth.decorators import login_required
 from .models import UserProfile, Transaction
 from django.contrib.auth.models import User
 from django.contrib import messages
-<<<<<<< HEAD
-from .forms import CustomerCreationForm, CustomerUpdateForm, ProfileUpdateForm,MoneyTransferForm
+from .forms import CustomerCreationForm, ProfileUpdateForm,MoneyTransferForm, AddMoneyForm
 from django.contrib.auth import logout
 from .models import UserProfile, Transaction
 
-=======
-from .forms import CustomerCreationForm, CustomerUpdateForm, ProfileUpdateForm
-from django.contrib.auth import logout
-
-
->>>>>>> 510cdd12fdf308bc09cfeef1c7100c64eff35677
 def home(request):
     return render(request, 'home.html')
 #******************** || Admin Views || **********************
@@ -56,8 +49,32 @@ def delete_customer(request, customer_id):
     return render(request, 'delete_customer.html', {'customer': customer})
 
 
+
+def add_money(request, customer_id):
+    customer = get_object_or_404(UserProfile, id=customer_id)
+    if request.method == 'POST':
+        form = AddMoneyForm(request.POST)
+        if form.is_valid():
+            amount = form.cleaned_data['balance']
+            customer.balance += amount
+            customer.save()
+
+            # Create Transaction record
+            transaction = Transaction.objects.create(
+                sender_account_no= "direct from bank",
+                receiver_account_no=customer.bank_account_no,
+                amount=amount,
+                transaction_id = Transaction.generate_unique_transaction_id()  # Function to generate transaction ID
+            )
+            transaction.save()
+
+            messages.success(request, f'Amount of {amount} transferred successfully to {customer}')
+            return redirect('see_all_customers')
+    else:
+        form = AddMoneyForm()
+    return render(request, 'add_money.html', {'form': form})
 #@login_required
-def update_customer(request, customer_id):
+"""def update_customer(request, customer_id):
     customer = get_object_or_404(UserProfile, id=customer_id)
     if request.method == 'POST':
         form = CustomerUpdateForm(request.POST, instance=customer)
@@ -68,7 +85,7 @@ def update_customer(request, customer_id):
     else:
         form = CustomerUpdateForm(instance=customer)
     
-    return render(request, 'update_customer.html', {'form': form, 'customer': customer})
+    return render(request, 'update_customer.html', {'form': form, 'customer': customer})"""
 
 """
 
@@ -169,7 +186,6 @@ def update_profile(request):
 
 def transaction_details(request):
     pass
-<<<<<<< HEAD
 
 @login_required
 def money_transfer(request):
@@ -186,7 +202,7 @@ def money_transfer(request):
 
             # Verify sender credentials
             sender = request.user.userprofile
-            if sender.user.username != sender_username or not sender.user.check_password(password):
+            if sender.user.username != sender_username or not sender.user.check_password(password) or sender.bank_account_no != sender_bank_account_no:
                 messages.error(request, 'Invalid sender credentials')
                 return redirect('money_transfer')
 
@@ -217,11 +233,5 @@ def money_transfer(request):
 
     return render(request, 'money_transfer.html', {'form': form})
 
-=======
-def send_money(request):
-    pass
->>>>>>> 510cdd12fdf308bc09cfeef1c7100c64eff35677
-def add_money(request):
-    pass
 def chat_with_admin(request):
     pass
