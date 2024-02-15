@@ -24,8 +24,26 @@ def see_all_transactions(request):
     pass
 
 
+
+"""Add Customer"""
 #@login_required
 def add_customer(request):
+    """
+    View function to handle adding a new customer.
+
+    This view displays a form to add a new customer and processes the form submission.
+    Requires the user to be logged in.
+
+    Parameters:
+    -----------
+    request : HttpRequest
+        The HTTP request object.
+
+    Returns:
+    --------
+    HttpResponse
+        The HTTP response object.
+    """
     if request.method == 'POST':
         form = CustomerCreationForm(request.POST)
         if form.is_valid():
@@ -36,6 +54,9 @@ def add_customer(request):
         form = CustomerCreationForm()
     
     return render(request, 'add_customer.html', {'form': form})
+
+
+
 
 
 #@login_required

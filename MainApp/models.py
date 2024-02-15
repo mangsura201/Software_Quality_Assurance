@@ -4,12 +4,28 @@ import random
 import string
 from datetime import datetime
 
-# Custom User Profile to Extend Django's User Model
+"""Custom User Profile to Extend Django's User Model"""
 class UserProfile(models.Model):
+    """
+    A model to represent user profiles with additional information.
+
+    Attributes:
+    -----------
+    user : models.OneToOneField
+        One-to-one relationship with the User model.
+    bank_account_no : models.CharField
+        The bank account number of the user.
+    phone_no : models.CharField
+        The phone number of the user.
+    balance : models.DecimalField
+        The balance in the user's account.
+    """
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     bank_account_no = models.CharField(max_length=20, unique=True)
     phone_no = models.CharField(max_length=15, unique=True)
     balance = models.DecimalField(max_digits=12, decimal_places=2, default=0)
+
+    
 
 # Transaction Model
 class Transaction(models.Model):
