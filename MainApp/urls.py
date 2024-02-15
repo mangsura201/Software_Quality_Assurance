@@ -28,4 +28,8 @@ urlpatterns = [
     path('login/', auth_views.LoginView.as_view(template_name='login.html'), name='login'),
     path('logout/', views.logout_view, name='logout'),
     path('custom_login/', views.custom_login, name='custom_login'),
+
+    # Url for testing
+    path('customer_transaction/<int:customer_id>/', views.customer_transaction, name='customer_transaction'),
+    path('see_all_transaction/', views.see_all_transaction, name='see_all_transaction'),
 ]
