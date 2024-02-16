@@ -26,3 +26,18 @@ python manage.py runserver
 ### Usage
 1. Upon running the program, you will be prompted with a home screen.
 2. Sign in as an admin or a customer to explore the features and functionalities of the application.
+
+### Unit Testing
+1. Open a terminal or command prompt.
+2. Navigate to the root directory of your Django project where manage.py is located.
+3. Run the following command:
+    python manage.py test
+
+### Extra feature of Unit Testing if you want
+1. You can also generate a more detailed HTML test coverage report by using tools like coverage.
+2. Install coverage if you haven't already:
+    pip install coverage
+3. Then you can run your tests with coverage:
+    coverage run manage.py test
+4. And generate an HTML report:
+    coverage html

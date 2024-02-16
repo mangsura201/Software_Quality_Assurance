@@ -24,8 +24,26 @@ def see_all_transactions(request):
     pass
 
 
+
+"""Add Customer"""
 #@login_required
 def add_customer(request):
+    """
+    View function to handle adding a new customer.
+
+    This view displays a form to add a new customer and processes the form submission.
+    Requires the user to be logged in.
+
+    Parameters:
+    -----------
+    request : HttpRequest
+        The HTTP request object.
+
+    Returns:
+    --------
+    HttpResponse
+        The HTTP response object.
+    """
     if request.method == 'POST':
         form = CustomerCreationForm(request.POST)
         if form.is_valid():
@@ -38,6 +56,9 @@ def add_customer(request):
     return render(request, 'add_customer.html', {'form': form})
 
 
+
+
+
 #@login_required
 def delete_customer(request, customer_id):
     customer = get_object_or_404(UserProfile, id=customer_id)
@@ -48,7 +69,6 @@ def delete_customer(request, customer_id):
         return redirect('see_all_customers')  # Redirect to see_all_customers after successful deletion
     
     return render(request, 'delete_customer.html', {'customer': customer})
-
 
 
 def add_money(request, customer_id):
@@ -96,81 +116,6 @@ def see_all_transaction(request):
         return render(request, 'admin_dashboard.html', {'message': 'You are not authorized to view this page'})
     
 
-#@login_required
-"""def update_customer(request, customer_id):
-    customer = get_object_or_404(UserProfile, id=customer_id)
-    if request.method == 'POST':
-        form = CustomerUpdateForm(request.POST, instance=customer)
-        if form.is_valid():
-            form.save()
-            messages.success(request, 'Customer details updated successfully!')
-            return redirect('see_all_customers')  # Redirect to see_all_customers after successful update
-    else:
-        form = CustomerUpdateForm(instance=customer)
-    
-    return render(request, 'update_customer.html', {'form': form, 'customer': customer})"""
-
-"""
-
-@login_required
-def send_money(request):
-    # Logic to send money to a customer account
-    if request.method == 'POST':
-        # Handle form data and process the money transfer
-        # Update sender and receiver account balances
-        # Create a transaction record
-        # Redirect to admin dashboard or display success/error messages
-        pass  # Your implementation here
-    return render(request, 'send_money.html', context)
-
-@login_required
-def view_transactions(request, user_id):
-    # Logic to view all transactions for a specific user
-    # Fetch transactions based on user_id
-    return render(request, 'view_transactions.html', context)
-
-# Customer Views
-@login_required
-def customer_dashboard(request):
-    # Logic to display customer dashboard
-    # Fetch user details, transactions, etc.
-    return render(request, 'customer_dashboard.html', context)
-
-@login_required
-def update_profile(request):
-    # Logic to update customer profile
-    if request.method == 'POST':
-        # Handle form data and update customer profile
-        # Redirect to customer dashboard or display success/error messages
-        pass  # Your implementation here
-    return render(request, 'update_profile.html', context)
-
-@login_required
-def view_own_transactions(request):
-    # Logic to view own transactions
-    # Fetch transactions for the logged-in customer
-    return render(request, 'view_own_transactions.html', context)
-
-@login_required
-def send_money_to_customer(request):
-    # Logic to send money to another customer's account
-    if request.method == 'POST':
-        # Handle form data and process the money transfer
-        # Update sender and receiver account balances
-        # Create a transaction record
-        # Redirect to customer dashboard or display success/error messages
-        pass  # Your implementation here
-    return render(request, 'send_money_to_customer.html', context)
-
-@login_required
-def request_zakat(request):
-    # Logic to calculate and process zakat request
-    # Calculate based on one year's transaction history
-    # Display zakat amount or error messages
-    return render(request, 'request_zakat.html', context)
-
-# Real-Time Chat Views (if using Django Channels or similar)
-# Implement chat functionality for both admin and customers"""
 #******************** || Customer Views || **********************
 def custom_login(request):
     if request.user.is_authenticated:
@@ -202,19 +147,7 @@ def update_profile(request):
         form = ProfileUpdateForm(instance=user)
     
     return render(request, 'update_profile.html', {'form': form})
-"""
-def update_profile(request):
-    user_profile = request.user # Assuming UserProfile is related to User model
-    if request.method == 'POST':
-        form = ProfileUpdateForm(request.POST, instance=user_profile)
-        if form.is_valid():
-            form.save()
-            return redirect('customer_dashboard')  # Redirect after successful update
-    else:
-        form = ProfileUpdateForm(instance=user_profile)
-    
-    return render(request, 'update_profile.html', {'form': form})
-"""
+
 
 @login_required
 def money_transfer(request):

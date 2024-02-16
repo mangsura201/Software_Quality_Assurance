@@ -3,15 +3,67 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 from .models import UserProfile
 
+"""Creation of Form for Adding New customer"""
 class CustomerCreationForm(UserCreationForm):
+    """
+    A form for creating a new user with additional fields for bank account number and phone number.
+
+    Inherits:
+    ----------
+    UserCreationForm : class
+        Django's built-in form for user creation.
+
+    Attributes:
+    -----------
+    bank_account_no : forms.CharField
+        Field for entering the bank account number.
+    phone_no : forms.CharField
+        Field for entering the phone number.
+
+    Meta:
+    -----
+    model : User
+        The model used for the form.
+    fields : list of str
+        The fields to include in the form.
+
+    Methods:
+    --------
+    save(self, commit=True)
+        Overrides the save method to include saving bank account number and phone number.
+    """
     bank_account_no = forms.CharField(max_length=20, required=True)
     phone_no = forms.CharField(max_length=15, required=True)
+    """
+        Metadata for the form.
+
+        Attributes:
+        -----------
+        model : User
+            The model used for the form.
+        fields : list of str
+            The fields to include in the form.
+        """
 
     class Meta:
         model = User
         fields = ['first_name', 'last_name', 'username', 'email', 'password1', 'password2']
 
     def save(self, commit=True):
+        """
+        Saves the user instance along with bank account number and phone number.
+
+        Parameters:
+        -----------
+        commit : bool, optional
+            Indicates whether to save the data to the database immediately.
+            Default is True.
+
+        Returns:
+        --------
+        User
+            The user instance that is saved.
+        """
         user = super().save(commit=False)
         bank_account_no = self.cleaned_data['bank_account_no']
         phone_no = self.cleaned_data['phone_no']
@@ -19,6 +71,8 @@ class CustomerCreationForm(UserCreationForm):
             user.save()
             UserProfile.objects.create(user=user, bank_account_no=bank_account_no, phone_no=phone_no )
         return user
+
+
 
 
 class AddMoneyForm(forms.ModelForm):
@@ -50,17 +104,6 @@ class ProfileUpdateForm(forms.ModelForm):
         if commit:
             user.save()
             return super(ProfileUpdateForm, self).save(commit=commit)
-"""
-class ProfileUpdateForm(forms.ModelForm):
-    class Meta:
-        model = UserProfile
-        exclude = ['user', 'bank_account_no', 'balance']  # Excluding fields from the form
-
-    def __init__(self, *args, **kwargs):
-        super(ProfileUpdateForm, self).__init__(*args, **kwargs)
-        for field_name in self.Meta.exclude:
-            self.fields[field_name].disabled = True  # Disabling excluded fields
-"""
 
 
 class MoneyTransferForm(forms.Form):
