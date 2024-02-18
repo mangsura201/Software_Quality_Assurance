@@ -15,41 +15,16 @@ def home(request):
 def admin_dashboard(request):
     return render(request, 'admin_dashboard.html')
 
+def see_all_customers(request):
+    customers = UserProfile.objects.all()
+    return render(request, 'see_all_customers.html', {'customers': customers})
+
 def see_all_transactions(request):
     # Logic to retrieve and display all transactions
     pass
 
 
 
-"""Add Customer"""
-#@login_required
-def add_customer(request):
-    """
-    View function to handle adding a new customer.
-
-    This view displays a form to add a new customer and processes the form submission.
-    Requires the user to be logged in.
-
-    Parameters:
-    -----------
-    request : HttpRequest
-        The HTTP request object.
-
-    Returns:
-    --------
-    HttpResponse
-        The HTTP response object.
-    """
-    if request.method == 'POST':
-        form = CustomerCreationForm(request.POST)
-        if form.is_valid():
-            form.save()
-            messages.success(request, 'New customer added successfully!')
-            return redirect('admin_dashboard')  # Redirect to admin dashboard after successful addition
-    else:
-        form = CustomerCreationForm()
-    
-    return render(request, 'add_customer.html', {'form': form})
 
 
 
@@ -144,6 +119,52 @@ def update_profile(request):
     
     return render(request, 'update_profile.html', {'form': form})
 
+
+@login_required
+def money_transfer(request):
+    if request.method == 'POST':
+        form = MoneyTransferForm(request.POST)
+        if form.is_valid():
+            receiver_username = form.cleaned_data['receiver_username']
+            receiver_email = form.cleaned_data['receiver_email']
+            receiver_bank_account_no = form.cleaned_data['receiver_bank_account_no']
+            amount = form.cleaned_data['amount']
+            sender_bank_account_no = form.cleaned_data['sender_bank_account_no']
+            sender_username = form.cleaned_data['sender_username']
+            password = form.cleaned_data['password']
+
+            # Verify sender credentials
+            sender = request.user.userprofile
+            if sender.user.username != sender_username or not sender.user.check_password(password) or sender.bank_account_no != sender_bank_account_no:
+                messages.error(request, 'Invalid sender credentials')
+                return redirect('money_transfer')
+
+            
+            if sender.balance < amount:
+                messages.error(request, 'Insufficient balance')
+                return redirect('money_transfer')
+
+            receiver = get_object_or_404(UserProfile, user__username=receiver_username, user__email=receiver_email)
+            sender.balance -= amount
+            receiver.balance += amount
+            sender.save()
+            receiver.save()
+
+            # Create Transaction record
+            transaction = Transaction.objects.create(
+                sender_account_no=sender.bank_account_no,
+                receiver_account_no=receiver.bank_account_no,
+                amount=amount,
+                transaction_id = Transaction.generate_unique_transaction_id()  # Function to generate transaction ID
+            )
+            transaction.save()
+
+            messages.success(request, f'Amount of {amount} transferred successfully to {receiver_username}')
+            return redirect('customer_dashboard')
+    else:
+        form = MoneyTransferForm()
+
+    return render(request, 'money_transfer.html', {'form': form})
 
 def chat_with_admin(request):
     pass
