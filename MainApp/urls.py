@@ -1,6 +1,6 @@
 from django.urls import path
 from django.contrib.auth import views as auth_views
-from . import views
+from . import views, money_transfer_views
 
 urlpatterns = [
     path('admin_dashboard/', views.admin_dashboard, name='admin_dashboard'),
@@ -20,7 +20,7 @@ urlpatterns = [
     path('customer_dashboard/', views.customer_dashboard, name='customer_dashboard'),
     path('update_profile/', views.update_profile, name='update_profile'),
     path('transaction_details/<int:customer_id>/', views.customer_transaction, name='transaction_details'),
-    path('money_transfer/', views.money_transfer, name='money_transfer'),
+    path('money_transfer/', money_transfer_views.money_transfer, name='money_transfer'),
     path('add_money/', views.add_money, name='add_money'),
     path('chat_with_admin/', views.chat_with_admin, name='chat_with_admin'),
 
