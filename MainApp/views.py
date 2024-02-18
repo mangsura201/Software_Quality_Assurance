@@ -15,10 +15,6 @@ def home(request):
 def admin_dashboard(request):
     return render(request, 'admin_dashboard.html')
 
-def see_all_customers(request):
-    customers = UserProfile.objects.all()
-    return render(request, 'see_all_customers.html', {'customers': customers})
-
 def see_all_transactions(request):
     # Logic to retrieve and display all transactions
     pass
@@ -102,9 +98,6 @@ def logout_view(request):
     return redirect('home')
 
 @login_required
-def customer_dashboard(request):
-    user = request.user  # Assuming user details are stored in request.user
-    return render(request, 'customer_dashboard.html', {'user': user})
 
 @login_required
 def update_profile(request):
