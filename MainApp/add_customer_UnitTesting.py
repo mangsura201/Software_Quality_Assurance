@@ -55,10 +55,10 @@ class AddCustomerViewTest(TestCase):
         """
         url = reverse('add_customer')
         data = {
-            'first_name': 'John',
-            'last_name': 'Doe',
-            'username': 'johndoe',
-            'email': 'johndoe@example.com',
+            'first_name': 'Mangsura',
+            'last_name': 'Kabir',
+            'username': 'mangsurakabir',
+            'email': 'mangsurakabir@gmail.com',
             'password1': 'testpassword',
             'password2': 'testpassword',
             'bank_account_no': '1234567890',
@@ -70,6 +70,6 @@ class AddCustomerViewTest(TestCase):
         self.assertRedirects(response, reverse('admin_dashboard'))
 
         # Check if the user and user profile are created
-        self.assertTrue(User.objects.filter(username='johndoe').exists())
-        self.assertTrue(UserProfile.objects.filter(user__username='johndoe').exists())
+        self.assertTrue(User.objects.filter(username='mangsurakabir').exists())
+        self.assertTrue(UserProfile.objects.filter(user__username='mangsurakabir').exists())
 
