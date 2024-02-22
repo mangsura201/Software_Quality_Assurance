@@ -1,7 +1,5 @@
 from django import forms
-from django.contrib.auth.forms import UserCreationForm
-from django.contrib.auth.models import User
-from .models import UserProfile
+from .models import UserProfile, Message
 
 class MoneyTransferForm(forms.Form):
     receiver_username = forms.CharField(max_length=150, required=True)
@@ -11,3 +9,11 @@ class MoneyTransferForm(forms.Form):
     sender_bank_account_no = forms.CharField(max_length=150, required=True)
     sender_username = forms.CharField(max_length=150, required=True)
     password = forms.CharField(widget=forms.PasswordInput(), required=True)
+
+class MessageForm(forms.ModelForm):
+    class Meta:
+        model = Message
+        fields = ['receiver', 'subject', 'body']
+        widgets = {
+            'body': forms.Textarea(attrs={'rows': 8}),
+        }
