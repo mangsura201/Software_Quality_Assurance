@@ -24,7 +24,7 @@ class ViewTests(TestCase):
         self.assertEqual(response.status_code, 200)
 
         # Check if the 'see_all_customers.html' template is used
-        self.assertTemplateUsed(response, 'see_all_customers.html')
+        self.assertTemplateUsed(response, 'Sayma/see_all_customers.html')
 
         # Check if the 'customers' variable is present in the context
         self.assertIn('customers', response.context)
