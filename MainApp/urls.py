@@ -1,5 +1,5 @@
 from django.urls import path
-from . import views
+from . import views,add_money_views
 
 urlpatterns = [
     path('admin_dashboard/', views.admin_dashboard, name='admin_dashboard'),
@@ -8,4 +8,7 @@ urlpatterns = [
     path('add_new_user/', views.add_new_user, name='add_new_user'),
     path('login_to_user/', views.login_to_user, name='login_to_user'),
     # Add more URL patterns for other functionalities if needed
+
+      path('add_money/', add_money_views.add_money, name='add_money'),
+       path('add_money/<int:customer_id>/', add_money_views.add_money, name='add_money'),
 ]

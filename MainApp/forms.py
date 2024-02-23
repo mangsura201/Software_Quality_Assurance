@@ -17,3 +17,9 @@ class CustomerCreationForm(UserCreationForm):
             user.save()
             UserProfile.objects.create(user=user, bank_account_no=bank_account_no)
         return user
+    
+
+class AddMoneyForm(forms.ModelForm):
+    class Meta:
+        model = UserProfile
+        fields = ['balance']
