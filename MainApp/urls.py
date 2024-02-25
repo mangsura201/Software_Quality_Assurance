@@ -1,11 +1,8 @@
 from django.urls import path
-<<<<<<< HEAD
 from MainApp import views, money_transfer_views, chat_system_views , see_all_customer_views, customer_dashboard_views
 
 
-=======
 from . import views,add_money_views
->>>>>>> c73b7cb1d6c91ef55ad555b6be0546f45656ef14
 
 urlpatterns = [
     path('admin_dashboard/', views.admin_dashboard, name='admin_dashboard'),
@@ -16,15 +13,12 @@ urlpatterns = [
     path('add_new_user/', views.add_new_user, name='add_new_user'),
     path('login_to_user/', views.login_to_user, name='login_to_user'),
     # Add more URL patterns for other functionalities if needed
-<<<<<<< HEAD
     path('money_transfer/', money_transfer_views.money_transfer, name='money_transfer'),
     path('inbox/', chat_system_views.inbox, name='inbox'),
     path('sentbox/', chat_system_views.sentbox, name='sentbox'),
     path('send_message/<slug:username>/', chat_system_views.send_message, name='send_message'),
     
-=======
 
       path('add_money/', add_money_views.add_money, name='add_money'),
        path('add_money/<int:customer_id>/', add_money_views.add_money, name='add_money'),
->>>>>>> c73b7cb1d6c91ef55ad555b6be0546f45656ef14
 ]
