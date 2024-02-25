@@ -19,6 +19,6 @@ urlpatterns = [
     path('send_message/<slug:username>/', chat_system_views.send_message, name='send_message'),
     
 
-      path('add_money/', add_money_views.add_money, name='add_money'),
-       path('add_money/<int:customer_id>/', add_money_views.add_money, name='add_money'),
+    path('add_money/', add_money_views.add_money, name='add_money'),
+    path('add_money/<int:customer_id>/', add_money_views.add_money, name='add_money'),
 ]
