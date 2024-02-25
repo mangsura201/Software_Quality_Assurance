@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2 class="text-center bg-primary">Sent Messages</h2>
+  <div class="container">
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">To</th>
+        <th scope="col">Subject</th>
+        <th scope="col">Date</th>
+        <th scope="col">Message</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for message in messages %}
+        <tr>
+          <td>{{ message.receiver.username }}</td>
+          <td>{{ message.subject }}</td>
+          <td>{{ message.created_at }}</td>
+          <td>{{ message.body }}</td>
+        </tr>
+      {% empty %}
+        <tr>
+          <td colspan="4">No messages found.</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endblock %}
