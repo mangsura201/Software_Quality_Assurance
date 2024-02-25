@@ -137,19 +137,29 @@ class CustomerUpdateForm(forms.ModelForm):
         return super(CustomerUpdateForm, self).save(commit=commit)
 
 class ProfileUpdateForm(forms.ModelForm):
+    first_name = forms.CharField(required=True)
+    last_name = forms.CharField(required=True)
+    email = forms.EmailField(required=True)
+
     class Meta:
         model = UserProfile
-        exclude = ['user', 'bank_account_no', 'balance']  # Excluding fields from the form
+        fields = ['phone_no']  # Fields to be updated
 
     def __init__(self, *args, **kwargs):
         super(ProfileUpdateForm, self).__init__(*args, **kwargs)
-        for field_name in self.Meta.exclude:
-            self.fields[field_name].disabled = True  # Disabling excluded fields
+        self.fields['first_name'].initial = self.instance.user.first_name
+        self.fields['last_name'].initial = self.instance.user.last_name
+        self.fields['email'].initial = self.instance.user.email
 
     def save(self, commit=True):
         user = self.instance.user
-        user.save()
-        return super(ProfileUpdateForm, self).save(commit=commit)
+        user.first_name = self.cleaned_data['first_name']
+        user.last_name = self.cleaned_data['last_name']
+        user.email = self.cleaned_data['email']
+        if commit:
+            user.save()
+            return super(ProfileUpdateForm, self).save(commit=commit)
+
 
 
 from django.contrib.auth.forms import UserCreationForm

@@ -25,7 +25,7 @@ def add_money(request, customer_id):
             transaction.save()
 
             messages.success(request, f'Amount of {amount} transferred successfully to {customer}')
-            return redirect('add_money')
+            return redirect('see_all_customers')
     else:
         form = AddMoneyForm()
-    return render(request, 'add_money.html', {'form': form})
+    return render(request, 'mangsura/add_money.html', {'form': form})

@@ -43,11 +43,12 @@
         </div>
         
         <div class="d-grid gap-2 col-6 mx-auto">
-            <button class="btn btn-dark" type="button"><a href="{% url 'update_profile' %}" class="no-underline">Update Profile</a></button>
+            <button class="btn btn-dark" type="button"><a href="{% url 'update_customer' user.userprofile.id %}" class="no-underline">Update Profile</a></button>
             <button class="btn btn-dark" type="button"><a href="{% url 'transaction_details' user.userprofile.id %}" class="no-underline">Transaction Details</a></button>
             <button class="btn btn-dark" type="button"><a href="{% url 'money_transfer' %}" class="no-underline">Money Transfer</a></button>
-            <button class="btn btn-dark" type="button"><a href="{% url 'add_money' %}" class="no-underline">Add Money</a></button>
-            <button class="btn btn-dark" type="button"><a href="{% url 'chat_with_admin' %}" class="no-underline">Chat with Admin</a></button>
+            <button class="btn btn-dark" type="button"><a href="{% url 'send_message' user %}" class="no-underline">Send message</a></button>
+            <button class="btn btn-dark" type="button"><a href="{% url 'inbox' %}" class="no-underline">Inbox</a></button>
+            <button class="btn btn-dark" type="button"><a href="{% url 'sentbox' %}" class="no-underline">Sentbox</a></button>
             <button class="btn btn-dark" type="button"><a href="{% url 'logout' %}" class="no-underline">Logout</a></button>
         </div>
         

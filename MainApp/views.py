@@ -7,6 +7,8 @@ from django.contrib import messages
 # Random code for project to Run it perfectly
 def home(request):
     return render(request, 'home.html')
+def customer_transaction(request, a):
+    pass
 
 #@login_required
 def admin_dashboard(request):
