@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from .models import UserProfile
+from .models import Transaction
 from django.contrib import messages
 from django.contrib.auth import logout
 
