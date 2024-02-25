@@ -28,4 +28,4 @@ def add_money(request, customer_id):
             return redirect('add_money')
     else:
         form = AddMoneyForm()
-    return render(request, 'add_money.html', {'form': form})
+    return render(request, 'mangsura/add_money.html', {'form': form})
