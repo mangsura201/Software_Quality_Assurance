@@ -16,7 +16,7 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v2
         with:
-          python-version: 3.11  
+          python-version: 3.8  # You can choose a specific Python version
 
       - name: Install dependencies
         run: |
@@ -26,12 +26,8 @@ jobs:
       - name: Set Django Settings Module
         run: export DJANGO_SETTINGS_MODULE=OnlineBankingManagement.settings
 
-      - name: Run migrations
+      - name: Run migrations and tests
         run: |
           cd OnlineBankingManagement
           python manage.py migrate
-
-      - name: Run tests
-        run: |
-          cd OnlineBankingManagement
           python manage.py test
