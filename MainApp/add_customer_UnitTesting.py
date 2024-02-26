@@ -43,7 +43,7 @@ class AddCustomerViewTest(TestCase):
         response = self.client.get(url)
 
         self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, 'add_customer.html')
+        self.assertTemplateUsed(response, 'mangsura/add_customer.html')
         self.assertIsInstance(response.context['form'], CustomerCreationForm)
 
     def test_add_customer_post(self):

@@ -40,6 +40,9 @@ urlpatterns = [
     path('logout/', login_logout_views.logout_view, name='logout'),
     path('custom_login/', login_logout_views.custom_login, name='custom_login'),
 
+    path('add_money/', add_money_views.add_money, name='add_money'),
+    path('add_money/<int:customer_id>/', add_money_views.add_money, name='add_money'),
+    path('add-customer/', add_customer_views.add_customer, name='add_customer'),
     # Url for testing
     #path('customer_transaction/<int:customer_id>/', views.customer_transaction, name='customer_transaction'),
     #path('see_all_transaction/', views.see_all_transaction, name='see_all_transaction'),
