@@ -31,3 +31,4 @@ jobs:
     - name: Run Tests
       run: python manage.py test
 
+    # Add more steps for linting, security scans, etc.
