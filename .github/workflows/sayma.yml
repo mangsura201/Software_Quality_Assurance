@@ -23,20 +23,10 @@ jobs:
           python -m pip install --upgrade pip
           python -m pip install -r requirements.txt
 
-      - name: Print current directory
-        run: pwd
-
-      - name: Run migrations and tests
-        run: |
-          cd OnlineBankingManagement
-          python manage.py migrate
-          python manage.py test
-
       - name: Set Django Settings Module
         run: export DJANGO_SETTINGS_MODULE=OnlineBankingManagement.settings
 
       - name: Run migrations and tests
         run: |
-          cd OnlineBankingManagement
           python manage.py migrate
           python manage.py test
