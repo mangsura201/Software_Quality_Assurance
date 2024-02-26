@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MainApp.customer_dashboard_views &mdash; OnlineBankingManagementSystem 0.0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../_static/documentation_options.js?v=d45e8c67"></script>
+        <script src="../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            OnlineBankingManagementSystem
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <!-- Local TOC -->
+              <div class="local-toc"></div>
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">OnlineBankingManagementSystem</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">MainApp.customer_dashboard_views</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for MainApp.customer_dashboard_views</h1><div class="highlight"><pre>
+<span></span><span class="kn">from</span> <span class="nn">django.shortcuts</span> <span class="kn">import</span> <span class="n">render</span><span class="p">,</span> <span class="n">redirect</span><span class="p">,</span> <span class="n">get_object_or_404</span>
+<span class="kn">from</span> <span class="nn">django.contrib.auth.decorators</span> <span class="kn">import</span> <span class="n">login_required</span>
+<span class="kn">from</span> <span class="nn">.models</span> <span class="kn">import</span> <span class="n">UserProfile</span><span class="p">,</span> <span class="n">Transaction</span>
+<span class="kn">from</span> <span class="nn">django.contrib.auth.models</span> <span class="kn">import</span> <span class="n">User</span>
+<span class="kn">from</span> <span class="nn">django.contrib</span> <span class="kn">import</span> <span class="n">messages</span>
+<span class="kn">from</span> <span class="nn">.forms</span> <span class="kn">import</span> <span class="n">CustomerCreationForm</span><span class="p">,</span> <span class="n">CustomerUpdateForm</span>
+
+<div class="viewcode-block" id="customer_dashboard">
+<a class="viewcode-back" href="../../MainApp.html#MainApp.customer_dashboard_views.customer_dashboard">[docs]</a>
+<span class="k">def</span> <span class="nf">customer_dashboard</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+    <span class="n">user</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">user</span>  <span class="c1"># Assuming user details are stored in request.user</span>
+    <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s1">&#39;Sayma/customer_dashboard.html&#39;</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;user&#39;</span><span class="p">:</span> <span class="n">user</span><span class="p">})</span></div>
+
+
+<div class="viewcode-block" id="update_profile">
+<a class="viewcode-back" href="../../MainApp.html#MainApp.customer_dashboard_views.update_profile">[docs]</a>
+<span class="k">def</span> <span class="nf">update_profile</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+    <span class="k">pass</span></div>
+
+<div class="viewcode-block" id="transaction_details">
+<a class="viewcode-back" href="../../MainApp.html#MainApp.customer_dashboard_views.transaction_details">[docs]</a>
+<span class="k">def</span> <span class="nf">transaction_details</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+    <span class="k">pass</span></div>
+
+<div class="viewcode-block" id="send_money">
+<a class="viewcode-back" href="../../MainApp.html#MainApp.customer_dashboard_views.send_money">[docs]</a>
+<span class="k">def</span> <span class="nf">send_money</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+    <span class="k">pass</span></div>
+
+<div class="viewcode-block" id="add_money">
+<a class="viewcode-back" href="../../MainApp.html#MainApp.customer_dashboard_views.add_money">[docs]</a>
+<span class="k">def</span> <span class="nf">add_money</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+    <span class="k">pass</span></div>
+
+<div class="viewcode-block" id="chat_with_admin">
+<a class="viewcode-back" href="../../MainApp.html#MainApp.customer_dashboard_views.chat_with_admin">[docs]</a>
+<span class="k">def</span> <span class="nf">chat_with_admin</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+    <span class="k">pass</span></div>
+
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, ShifatiRabbi &amp; Team members.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

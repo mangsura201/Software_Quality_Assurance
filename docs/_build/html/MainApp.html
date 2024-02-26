@@ -1,0 +1,1412 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MainApp package &mdash; OnlineBankingManagementSystem 0.0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=d45e8c67"></script>
+        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            OnlineBankingManagementSystem
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">MainApp package</a><ul>
+<li><a class="reference internal" href="#subpackages">Subpackages</a></li>
+<li><a class="reference internal" href="#submodules">Submodules</a></li>
+<li><a class="reference internal" href="#module-MainApp.add_customer_UnitTesting">MainApp.add_customer_UnitTesting module</a><ul>
+<li><a class="reference internal" href="#MainApp.add_customer_UnitTesting.AddCustomerViewTest"><code class="docutils literal notranslate"><span class="pre">AddCustomerViewTest</span></code></a><ul>
+<li><a class="reference internal" href="#MainApp.add_customer_UnitTesting.AddCustomerViewTest.setUp"><code class="docutils literal notranslate"><span class="pre">AddCustomerViewTest.setUp()</span></code></a></li>
+<li><a class="reference internal" href="#MainApp.add_customer_UnitTesting.AddCustomerViewTest.test_add_customer_post"><code class="docutils literal notranslate"><span class="pre">AddCustomerViewTest.test_add_customer_post()</span></code></a></li>
+<li><a class="reference internal" href="#MainApp.add_customer_UnitTesting.AddCustomerViewTest.test_add_customer_view"><code class="docutils literal notranslate"><span class="pre">AddCustomerViewTest.test_add_customer_view()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-MainApp.add_customer_views">MainApp.add_customer_views module</a><ul>
+<li><a class="reference internal" href="#MainApp.add_customer_views.add_customer"><code class="docutils literal notranslate"><span class="pre">add_customer()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-MainApp.add_money_UnitTesting">MainApp.add_money_UnitTesting module</a><ul>
+<li><a class="reference internal" href="#MainApp.add_money_UnitTesting.AddMoneyViewTest"><code class="docutils literal notranslate"><span class="pre">AddMoneyViewTest</span></code></a><ul>
+<li><a class="reference internal" href="#MainApp.add_money_UnitTesting.AddMoneyViewTest.setUpTestData"><code class="docutils literal notranslate"><span class="pre">AddMoneyViewTest.setUpTestData()</span></code></a></li>
+<li><a class="reference internal" href="#MainApp.add_money_UnitTesting.AddMoneyViewTest.test_add_money_view"><code class="docutils literal notranslate"><span class="pre">AddMoneyViewTest.test_add_money_view()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-MainApp.add_money_views">MainApp.add_money_views module</a><ul>
+<li><a class="reference internal" href="#MainApp.add_money_views.add_money"><code class="docutils literal notranslate"><span class="pre">add_money()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-MainApp.admin">MainApp.admin module</a></li>
+<li><a class="reference internal" href="#module-MainApp.all_transaction_test">MainApp.all_transaction_test module</a><ul>
+<li><a class="reference internal" href="#MainApp.all_transaction_test.SeeAllTransactionsTestCase"><code class="docutils literal notranslate"><span class="pre">SeeAllTransactionsTestCase</span></code></a><ul>
+<li><a class="reference internal" href="#MainApp.all_transaction_test.SeeAllTransactionsTestCase.setUp"><code class="docutils literal notranslate"><span class="pre">SeeAllTransactionsTestCase.setUp()</span></code></a></li>
+<li><a class="reference internal" href="#MainApp.all_transaction_test.SeeAllTransactionsTestCase.test_admin_can_see_all_transactions"><code class="docutils literal notranslate"><span class="pre">SeeAllTransactionsTestCase.test_admin_can_see_all_transactions()</span></code></a></li>
+<li><a class="reference internal" href="#MainApp.all_transaction_test.SeeAllTransactionsTestCase.test_regular_user_redirected"><code class="docutils literal notranslate"><span class="pre">SeeAllTransactionsTestCase.test_regular_user_redirected()</span></code></a></li>
+<li><a class="reference internal" href="#MainApp.all_transaction_test.SeeAllTransactionsTestCase.test_unauthenticated_user_redirected_to_login"><code class="docutils literal notranslate"><span class="pre">SeeAllTransactionsTestCase.test_unauthenticated_user_redirected_to_login()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-MainApp.all_transaction_views">MainApp.all_transaction_views module</a><ul>
+<li><a class="reference internal" href="#MainApp.all_transaction_views.see_all_transactions"><code class="docutils literal notranslate"><span class="pre">see_all_transactions()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-MainApp.apps">MainApp.apps module</a><ul>
+<li><a class="reference internal" href="#MainApp.apps.MainappConfig"><code class="docutils literal notranslate"><span class="pre">MainappConfig</span></code></a><ul>
+<li><a class="reference internal" href="#MainApp.apps.MainappConfig.default_auto_field"><code class="docutils literal notranslate"><span class="pre">MainappConfig.default_auto_field</span></code></a></li>
+<li><a class="reference internal" href="#MainApp.apps.MainappConfig.name"><code class="docutils literal notranslate"><span class="pre">MainappConfig.name</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-MainApp.chat_system_unitTesting">MainApp.chat_system_unitTesting module</a><ul>
+<li><a class="reference internal" href="#MainApp.chat_system_unitTesting.MessageModelTestCase"><code class="docutils literal notranslate"><span class="pre">MessageModelTestCase</span></code></a><ul>
+<li><a class="reference internal" href="#MainApp.chat_system_unitTesting.MessageModelTestCase.setUp"><code class="docutils literal notranslate"><span class="pre">MessageModelTestCase.setUp()</span></code></a></li>
+<li><a class="reference internal" href="#MainApp.chat_system_unitTesting.MessageModelTestCase.test_message_creation"><code class="docutils literal notranslate"><span class="pre">MessageModelTestCase.test_message_creation()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#MainApp.chat_system_unitTesting.MessageViewsTestCase"><code class="docutils literal notranslate"><span class="pre">MessageViewsTestCase</span></code></a><ul>
+<li><a class="reference internal" href="#MainApp.chat_system_unitTesting.MessageViewsTestCase.setUp"><code class="docutils literal notranslate"><span class="pre">MessageViewsTestCase.setUp()</span></code></a></li>
+<li><a class="reference internal" href="#MainApp.chat_system_unitTesting.MessageViewsTestCase.test_inbox_view"><code class="docutils literal notranslate"><span class="pre">MessageViewsTestCase.test_inbox_view()</span></code></a></li>
+<li><a class="reference internal" href="#MainApp.chat_system_unitTesting.MessageViewsTestCase.test_send_message_view"><code class="docutils literal notranslate"><span class="pre">MessageViewsTestCase.test_send_message_view()</span></code></a></li>
+<li><a class="reference internal" href="#MainApp.chat_system_unitTesting.MessageViewsTestCase.test_sentbox_view"><code class="docutils literal notranslate"><span class="pre">MessageViewsTestCase.test_sentbox_view()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-MainApp.chat_system_views">MainApp.chat_system_views module</a><ul>
+<li><a class="reference internal" href="#MainApp.chat_system_views.inbox"><code class="docutils literal notranslate"><span class="pre">inbox()</span></code></a></li>
+<li><a class="reference internal" href="#MainApp.chat_system_views.send_message"><code class="docutils literal notranslate"><span class="pre">send_message()</span></code></a></li>
+<li><a class="reference internal" href="#MainApp.chat_system_views.sentbox"><code class="docutils literal notranslate"><span class="pre">sentbox()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-MainApp.customer_dashboard_views">MainApp.customer_dashboard_views module</a><ul>
+<li><a class="reference internal" href="#MainApp.customer_dashboard_views.add_money"><code class="docutils literal notranslate"><span class="pre">add_money()</span></code></a></li>
+<li><a class="reference internal" href="#MainApp.customer_dashboard_views.chat_with_admin"><code class="docutils literal notranslate"><span class="pre">chat_with_admin()</span></code></a></li>
+<li><a class="reference internal" href="#MainApp.customer_dashboard_views.customer_dashboard"><code class="docutils literal notranslate"><span class="pre">customer_dashboard()</span></code></a></li>
+<li><a class="reference internal" href="#MainApp.customer_dashboard_views.send_money"><code class="docutils literal notranslate"><span class="pre">send_money()</span></code></a></li>
+<li><a class="reference internal" href="#MainApp.customer_dashboard_views.transaction_details"><code class="docutils literal notranslate"><span class="pre">transaction_details()</span></code></a></li>
+<li><a class="reference internal" href="#MainApp.customer_dashboard_views.update_profile"><code class="docutils literal notranslate"><span class="pre">update_profile()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-MainApp.forms">MainApp.forms module</a><ul>
+<li><a class="reference internal" href="#MainApp.forms.AddMoneyForm"><code class="docutils literal notranslate"><span class="pre">AddMoneyForm</span></code></a><ul>
+<li><a class="reference internal" href="#MainApp.forms.AddMoneyForm.Meta"><code class="docutils literal notranslate"><span class="pre">AddMoneyForm.Meta</span></code></a><ul>
+<li><a class="reference internal" href="#MainApp.forms.AddMoneyForm.Meta.fields"><code class="docutils literal notranslate"><span class="pre">AddMoneyForm.Meta.fields</span></code></a></li>
+<li><a class="reference internal" href="#MainApp.forms.AddMoneyForm.Meta.model"><code class="docutils literal notranslate"><span class="pre">AddMoneyForm.Meta.model</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#MainApp.forms.AddMoneyForm.base_fields"><code class="docutils literal notranslate"><span class="pre">AddMoneyForm.base_fields</span></code></a></li>
+<li><a class="reference internal" href="#MainApp.forms.AddMoneyForm.declared_fields"><code class="docutils literal notranslate"><span class="pre">AddMoneyForm.declared_fields</span></code></a></li>
+<li><a class="reference internal" href="#MainApp.forms.AddMoneyForm.media"><code class="docutils literal notranslate"><span class="pre">AddMoneyForm.media</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#MainApp.forms.CustomerCreationForm"><code class="docutils literal notranslate"><span class="pre">CustomerCreationForm</span></code></a><ul>
+<li><a class="reference internal" href="#MainApp.forms.CustomerCreationForm.Meta"><code class="docutils literal notranslate"><span class="pre">CustomerCreationForm.Meta</span></code></a><ul>
+<li><a class="reference internal" href="#MainApp.forms.CustomerCreationForm.Meta.fields"><code class="docutils literal notranslate"><span class="pre">CustomerCreationForm.Meta.fields</span></code></a></li>
+<li><a class="reference internal" href="#MainApp.forms.CustomerCreationForm.Meta.model"><code class="docutils literal notranslate"><span class="pre">CustomerCreationForm.Meta.model</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#MainApp.forms.CustomerCreationForm.base_fields"><code class="docutils literal notranslate"><span class="pre">CustomerCreationForm.base_fields</span></code></a></li>
+<li><a class="reference internal" href="#MainApp.forms.CustomerCreationForm.declared_fields"><code class="docutils literal notranslate"><span class="pre">CustomerCreationForm.declared_fields</span></code></a></li>
+<li><a class="reference internal" href="#MainApp.forms.CustomerCreationForm.media"><code class="docutils literal notranslate"><span class="pre">CustomerCreationForm.media</span></code></a></li>
+<li><a class="reference internal" href="#MainApp.forms.CustomerCreationForm.phone_no"><code class="docutils literal notranslate"><span class="pre">CustomerCreationForm.phone_no</span></code></a></li>
+<li><a class="reference internal" href="#MainApp.forms.CustomerCreationForm.save"><code class="docutils literal notranslate"><span class="pre">CustomerCreationForm.save()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#MainApp.forms.CustomerUpdateForm"><code class="docutils literal notranslate"><span class="pre">CustomerUpdateForm</span></code></a><ul>
+<li><a class="reference internal" href="#MainApp.forms.CustomerUpdateForm.Meta"><code class="docutils literal notranslate"><span class="pre">CustomerUpdateForm.Meta</span></code></a><ul>
+<li><a class="reference internal" href="#MainApp.forms.CustomerUpdateForm.Meta.fields"><code class="docutils literal notranslate"><span class="pre">CustomerUpdateForm.Meta.fields</span></code></a></li>
+<li><a class="reference internal" href="#MainApp.forms.CustomerUpdateForm.Meta.model"><code class="docutils literal notranslate"><span class="pre">CustomerUpdateForm.Meta.model</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#MainApp.forms.CustomerUpdateForm.base_fields"><code class="docutils literal notranslate"><span class="pre">CustomerUpdateForm.base_fields</span></code></a></li>
+<li><a class="reference internal" href="#MainApp.forms.CustomerUpdateForm.declared_fields"><code class="docutils literal notranslate"><span class="pre">CustomerUpdateForm.declared_fields</span></code></a></li>
+<li><a class="reference internal" href="#MainApp.forms.CustomerUpdateForm.media"><code class="docutils literal notranslate"><span class="pre">CustomerUpdateForm.media</span></code></a></li>
+<li><a class="reference internal" href="#MainApp.forms.CustomerUpdateForm.save"><code class="docutils literal notranslate"><span class="pre">CustomerUpdateForm.save()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#MainApp.forms.MessageForm"><code class="docutils literal notranslate"><span class="pre">MessageForm</span></code></a><ul>
+<li><a class="reference internal" href="#MainApp.forms.MessageForm.Meta"><code class="docutils literal notranslate"><span class="pre">MessageForm.Meta</span></code></a><ul>
+<li><a class="reference internal" href="#MainApp.forms.MessageForm.Meta.fields"><code class="docutils literal notranslate"><span class="pre">MessageForm.Meta.fields</span></code></a></li>
+<li><a class="reference internal" href="#MainApp.forms.MessageForm.Meta.model"><code class="docutils literal notranslate"><span class="pre">MessageForm.Meta.model</span></code></a></li>
+<li><a class="reference internal" href="#MainApp.forms.MessageForm.Meta.widgets"><code class="docutils literal notranslate"><span class="pre">MessageForm.Meta.widgets</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#MainApp.forms.MessageForm.base_fields"><code class="docutils literal notranslate"><span class="pre">MessageForm.base_fields</span></code></a></li>
+<li><a class="reference internal" href="#MainApp.forms.MessageForm.declared_fields"><code class="docutils literal notranslate"><span class="pre">MessageForm.declared_fields</span></code></a></li>
+<li><a class="reference internal" href="#MainApp.forms.MessageForm.media"><code class="docutils literal notranslate"><span class="pre">MessageForm.media</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#MainApp.forms.MoneyTransferForm"><code class="docutils literal notranslate"><span class="pre">MoneyTransferForm</span></code></a><ul>
+<li><a class="reference internal" href="#MainApp.forms.MoneyTransferForm.base_fields"><code class="docutils literal notranslate"><span class="pre">MoneyTransferForm.base_fields</span></code></a></li>
+<li><a class="reference internal" href="#MainApp.forms.MoneyTransferForm.declared_fields"><code class="docutils literal notranslate"><span class="pre">MoneyTransferForm.declared_fields</span></code></a></li>
+<li><a class="reference internal" href="#MainApp.forms.MoneyTransferForm.media"><code class="docutils literal notranslate"><span class="pre">MoneyTransferForm.media</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#MainApp.forms.ProfileUpdateForm"><code class="docutils literal notranslate"><span class="pre">ProfileUpdateForm</span></code></a><ul>
+<li><a class="reference internal" href="#MainApp.forms.ProfileUpdateForm.Meta"><code class="docutils literal notranslate"><span class="pre">ProfileUpdateForm.Meta</span></code></a><ul>
+<li><a class="reference internal" href="#MainApp.forms.ProfileUpdateForm.Meta.fields"><code class="docutils literal notranslate"><span class="pre">ProfileUpdateForm.Meta.fields</span></code></a></li>
+<li><a class="reference internal" href="#MainApp.forms.ProfileUpdateForm.Meta.model"><code class="docutils literal notranslate"><span class="pre">ProfileUpdateForm.Meta.model</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#MainApp.forms.ProfileUpdateForm.base_fields"><code class="docutils literal notranslate"><span class="pre">ProfileUpdateForm.base_fields</span></code></a></li>
+<li><a class="reference internal" href="#MainApp.forms.ProfileUpdateForm.declared_fields"><code class="docutils literal notranslate"><span class="pre">ProfileUpdateForm.declared_fields</span></code></a></li>
+<li><a class="reference internal" href="#MainApp.forms.ProfileUpdateForm.media"><code class="docutils literal notranslate"><span class="pre">ProfileUpdateForm.media</span></code></a></li>
+<li><a class="reference internal" href="#MainApp.forms.ProfileUpdateForm.save"><code class="docutils literal notranslate"><span class="pre">ProfileUpdateForm.save()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-MainApp.login_logout_views">MainApp.login_logout_views module</a><ul>
+<li><a class="reference internal" href="#MainApp.login_logout_views.custom_login"><code class="docutils literal notranslate"><span class="pre">custom_login()</span></code></a></li>
+<li><a class="reference internal" href="#MainApp.login_logout_views.customer_dashboard"><code class="docutils literal notranslate"><span class="pre">customer_dashboard()</span></code></a></li>
+<li><a class="reference internal" href="#MainApp.login_logout_views.logout_view"><code class="docutils literal notranslate"><span class="pre">logout_view()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#mainapp-login-unit-testing-sb-module">MainApp.login_unit_testing_SB module</a></li>
+<li><a class="reference internal" href="#module-MainApp.models">MainApp.models module</a><ul>
+<li><a class="reference internal" href="#MainApp.models.Message"><code class="docutils literal notranslate"><span class="pre">Message</span></code></a><ul>
+<li><a class="reference internal" href="#MainApp.models.Message.DoesNotExist"><code class="docutils literal notranslate"><span class="pre">Message.DoesNotExist</span></code></a></li>
+<li><a class="reference internal" href="#MainApp.models.Message.MultipleObjectsReturned"><code class="docutils literal notranslate"><span class="pre">Message.MultipleObjectsReturned</span></code></a></li>
+<li><a class="reference internal" href="#MainApp.models.Message.body"><code class="docutils literal notranslate"><span class="pre">Message.body</span></code></a></li>
+<li><a class="reference internal" href="#MainApp.models.Message.created_at"><code class="docutils literal notranslate"><span class="pre">Message.created_at</span></code></a></li>
+<li><a class="reference internal" href="#MainApp.models.Message.get_next_by_created_at"><code class="docutils literal notranslate"><span class="pre">Message.get_next_by_created_at()</span></code></a></li>
+<li><a class="reference internal" href="#MainApp.models.Message.get_previous_by_created_at"><code class="docutils literal notranslate"><span class="pre">Message.get_previous_by_created_at()</span></code></a></li>
+<li><a class="reference internal" href="#MainApp.models.Message.id"><code class="docutils literal notranslate"><span class="pre">Message.id</span></code></a></li>
+<li><a class="reference internal" href="#MainApp.models.Message.objects"><code class="docutils literal notranslate"><span class="pre">Message.objects</span></code></a></li>
+<li><a class="reference internal" href="#MainApp.models.Message.receiver"><code class="docutils literal notranslate"><span class="pre">Message.receiver</span></code></a></li>
+<li><a class="reference internal" href="#MainApp.models.Message.receiver_id"><code class="docutils literal notranslate"><span class="pre">Message.receiver_id</span></code></a></li>
+<li><a class="reference internal" href="#MainApp.models.Message.sender"><code class="docutils literal notranslate"><span class="pre">Message.sender</span></code></a></li>
+<li><a class="reference internal" href="#MainApp.models.Message.sender_id"><code class="docutils literal notranslate"><span class="pre">Message.sender_id</span></code></a></li>
+<li><a class="reference internal" href="#MainApp.models.Message.subject"><code class="docutils literal notranslate"><span class="pre">Message.subject</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#MainApp.models.Transaction"><code class="docutils literal notranslate"><span class="pre">Transaction</span></code></a><ul>
+<li><a class="reference internal" href="#MainApp.models.Transaction.DoesNotExist"><code class="docutils literal notranslate"><span class="pre">Transaction.DoesNotExist</span></code></a></li>
+<li><a class="reference internal" href="#MainApp.models.Transaction.MultipleObjectsReturned"><code class="docutils literal notranslate"><span class="pre">Transaction.MultipleObjectsReturned</span></code></a></li>
+<li><a class="reference internal" href="#MainApp.models.Transaction.amount"><code class="docutils literal notranslate"><span class="pre">Transaction.amount</span></code></a></li>
+<li><a class="reference internal" href="#MainApp.models.Transaction.date"><code class="docutils literal notranslate"><span class="pre">Transaction.date</span></code></a></li>
+<li><a class="reference internal" href="#MainApp.models.Transaction.generate_unique_transaction_id"><code class="docutils literal notranslate"><span class="pre">Transaction.generate_unique_transaction_id()</span></code></a></li>
+<li><a class="reference internal" href="#MainApp.models.Transaction.get_next_by_date"><code class="docutils literal notranslate"><span class="pre">Transaction.get_next_by_date()</span></code></a></li>
+<li><a class="reference internal" href="#MainApp.models.Transaction.get_previous_by_date"><code class="docutils literal notranslate"><span class="pre">Transaction.get_previous_by_date()</span></code></a></li>
+<li><a class="reference internal" href="#MainApp.models.Transaction.id"><code class="docutils literal notranslate"><span class="pre">Transaction.id</span></code></a></li>
+<li><a class="reference internal" href="#MainApp.models.Transaction.objects"><code class="docutils literal notranslate"><span class="pre">Transaction.objects</span></code></a></li>
+<li><a class="reference internal" href="#MainApp.models.Transaction.receiver_account_no"><code class="docutils literal notranslate"><span class="pre">Transaction.receiver_account_no</span></code></a></li>
+<li><a class="reference internal" href="#MainApp.models.Transaction.save"><code class="docutils literal notranslate"><span class="pre">Transaction.save()</span></code></a></li>
+<li><a class="reference internal" href="#MainApp.models.Transaction.sender_account_no"><code class="docutils literal notranslate"><span class="pre">Transaction.sender_account_no</span></code></a></li>
+<li><a class="reference internal" href="#MainApp.models.Transaction.transaction_id"><code class="docutils literal notranslate"><span class="pre">Transaction.transaction_id</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#MainApp.models.UserProfile"><code class="docutils literal notranslate"><span class="pre">UserProfile</span></code></a><ul>
+<li><a class="reference internal" href="#MainApp.models.UserProfile.DoesNotExist"><code class="docutils literal notranslate"><span class="pre">UserProfile.DoesNotExist</span></code></a></li>
+<li><a class="reference internal" href="#MainApp.models.UserProfile.MultipleObjectsReturned"><code class="docutils literal notranslate"><span class="pre">UserProfile.MultipleObjectsReturned</span></code></a></li>
+<li><a class="reference internal" href="#MainApp.models.UserProfile.balance"><code class="docutils literal notranslate"><span class="pre">UserProfile.balance</span></code></a></li>
+<li><a class="reference internal" href="#MainApp.models.UserProfile.bank_account_no"><code class="docutils literal notranslate"><span class="pre">UserProfile.bank_account_no</span></code></a></li>
+<li><a class="reference internal" href="#MainApp.models.UserProfile.id"><code class="docutils literal notranslate"><span class="pre">UserProfile.id</span></code></a></li>
+<li><a class="reference internal" href="#MainApp.models.UserProfile.objects"><code class="docutils literal notranslate"><span class="pre">UserProfile.objects</span></code></a></li>
+<li><a class="reference internal" href="#MainApp.models.UserProfile.phone_no"><code class="docutils literal notranslate"><span class="pre">UserProfile.phone_no</span></code></a></li>
+<li><a class="reference internal" href="#MainApp.models.UserProfile.user"><code class="docutils literal notranslate"><span class="pre">UserProfile.user</span></code></a></li>
+<li><a class="reference internal" href="#MainApp.models.UserProfile.user_id"><code class="docutils literal notranslate"><span class="pre">UserProfile.user_id</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-MainApp.money_transfer_UnitTesting">MainApp.money_transfer_UnitTesting module</a><ul>
+<li><a class="reference internal" href="#MainApp.money_transfer_UnitTesting.MoneyTransferViewTestCase"><code class="docutils literal notranslate"><span class="pre">MoneyTransferViewTestCase</span></code></a><ul>
+<li><a class="reference internal" href="#MainApp.money_transfer_UnitTesting.MoneyTransferViewTestCase.setUp"><code class="docutils literal notranslate"><span class="pre">MoneyTransferViewTestCase.setUp()</span></code></a></li>
+<li><a class="reference internal" href="#MainApp.money_transfer_UnitTesting.MoneyTransferViewTestCase.test_insufficient_balance"><code class="docutils literal notranslate"><span class="pre">MoneyTransferViewTestCase.test_insufficient_balance()</span></code></a></li>
+<li><a class="reference internal" href="#MainApp.money_transfer_UnitTesting.MoneyTransferViewTestCase.test_invalid_sender_credentials"><code class="docutils literal notranslate"><span class="pre">MoneyTransferViewTestCase.test_invalid_sender_credentials()</span></code></a></li>
+<li><a class="reference internal" href="#MainApp.money_transfer_UnitTesting.MoneyTransferViewTestCase.test_money_transfer_successful"><code class="docutils literal notranslate"><span class="pre">MoneyTransferViewTestCase.test_money_transfer_successful()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-MainApp.money_transfer_views">MainApp.money_transfer_views module</a><ul>
+<li><a class="reference internal" href="#MainApp.money_transfer_views.money_transfer"><code class="docutils literal notranslate"><span class="pre">money_transfer()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-MainApp.profile_update_unit_test_SB">MainApp.profile_update_unit_test_SB module</a><ul>
+<li><a class="reference internal" href="#MainApp.profile_update_unit_test_SB.YourAppViewsTestCase"><code class="docutils literal notranslate"><span class="pre">YourAppViewsTestCase</span></code></a><ul>
+<li><a class="reference internal" href="#MainApp.profile_update_unit_test_SB.YourAppViewsTestCase.setUp"><code class="docutils literal notranslate"><span class="pre">YourAppViewsTestCase.setUp()</span></code></a></li>
+<li><a class="reference internal" href="#MainApp.profile_update_unit_test_SB.YourAppViewsTestCase.test_customer_dashboard_view"><code class="docutils literal notranslate"><span class="pre">YourAppViewsTestCase.test_customer_dashboard_view()</span></code></a></li>
+<li><a class="reference internal" href="#MainApp.profile_update_unit_test_SB.YourAppViewsTestCase.test_home_view"><code class="docutils literal notranslate"><span class="pre">YourAppViewsTestCase.test_home_view()</span></code></a></li>
+<li><a class="reference internal" href="#MainApp.profile_update_unit_test_SB.YourAppViewsTestCase.test_logout_view"><code class="docutils literal notranslate"><span class="pre">YourAppViewsTestCase.test_logout_view()</span></code></a></li>
+<li><a class="reference internal" href="#MainApp.profile_update_unit_test_SB.YourAppViewsTestCase.test_update_profile_view"><code class="docutils literal notranslate"><span class="pre">YourAppViewsTestCase.test_update_profile_view()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-MainApp.profile_update_views">MainApp.profile_update_views module</a><ul>
+<li><a class="reference internal" href="#MainApp.profile_update_views.admin_dashboard"><code class="docutils literal notranslate"><span class="pre">admin_dashboard()</span></code></a></li>
+<li><a class="reference internal" href="#MainApp.profile_update_views.customer_dashboard"><code class="docutils literal notranslate"><span class="pre">customer_dashboard()</span></code></a></li>
+<li><a class="reference internal" href="#MainApp.profile_update_views.home"><code class="docutils literal notranslate"><span class="pre">home()</span></code></a></li>
+<li><a class="reference internal" href="#MainApp.profile_update_views.logout_view"><code class="docutils literal notranslate"><span class="pre">logout_view()</span></code></a></li>
+<li><a class="reference internal" href="#MainApp.profile_update_views.update_profile"><code class="docutils literal notranslate"><span class="pre">update_profile()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-MainApp.see_all_customer_views">MainApp.see_all_customer_views module</a><ul>
+<li><a class="reference internal" href="#MainApp.see_all_customer_views.see_all_customers"><code class="docutils literal notranslate"><span class="pre">see_all_customers()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-MainApp.tests">MainApp.tests module</a><ul>
+<li><a class="reference internal" href="#MainApp.tests.DeleteCustomerViewTest"><code class="docutils literal notranslate"><span class="pre">DeleteCustomerViewTest</span></code></a><ul>
+<li><a class="reference internal" href="#MainApp.tests.DeleteCustomerViewTest.setUp"><code class="docutils literal notranslate"><span class="pre">DeleteCustomerViewTest.setUp()</span></code></a></li>
+<li><a class="reference internal" href="#MainApp.tests.DeleteCustomerViewTest.test_delete_customer"><code class="docutils literal notranslate"><span class="pre">DeleteCustomerViewTest.test_delete_customer()</span></code></a></li>
+<li><a class="reference internal" href="#MainApp.tests.DeleteCustomerViewTest.test_delete_customer_get_request"><code class="docutils literal notranslate"><span class="pre">DeleteCustomerViewTest.test_delete_customer_get_request()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-MainApp.unit_testing_customer_dashboard">MainApp.unit_testing_customer_dashboard module</a><ul>
+<li><a class="reference internal" href="#MainApp.unit_testing_customer_dashboard.CustomerDashboardTests"><code class="docutils literal notranslate"><span class="pre">CustomerDashboardTests</span></code></a><ul>
+<li><a class="reference internal" href="#MainApp.unit_testing_customer_dashboard.CustomerDashboardTests.setUp"><code class="docutils literal notranslate"><span class="pre">CustomerDashboardTests.setUp()</span></code></a></li>
+<li><a class="reference internal" href="#MainApp.unit_testing_customer_dashboard.CustomerDashboardTests.test_customer_dashboard_view"><code class="docutils literal notranslate"><span class="pre">CustomerDashboardTests.test_customer_dashboard_view()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#mainapp-unit-testing-see-all-customers-module">MainApp.unit_testing_see_all_customers module</a></li>
+<li><a class="reference internal" href="#module-MainApp.urls">MainApp.urls module</a></li>
+<li><a class="reference internal" href="#module-MainApp.views">MainApp.views module</a><ul>
+<li><a class="reference internal" href="#MainApp.views.admin_dashboard"><code class="docutils literal notranslate"><span class="pre">admin_dashboard()</span></code></a></li>
+<li><a class="reference internal" href="#MainApp.views.customer_transaction"><code class="docutils literal notranslate"><span class="pre">customer_transaction()</span></code></a></li>
+<li><a class="reference internal" href="#MainApp.views.delete_customer"><code class="docutils literal notranslate"><span class="pre">delete_customer()</span></code></a></li>
+<li><a class="reference internal" href="#MainApp.views.home"><code class="docutils literal notranslate"><span class="pre">home()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-MainApp">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</div>
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">OnlineBankingManagementSystem</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">MainApp package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/MainApp.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="mainapp-package">
+<h1>MainApp package<a class="headerlink" href="#mainapp-package" title="Link to this heading"></a></h1>
+<section id="subpackages">
+<h2>Subpackages<a class="headerlink" href="#subpackages" title="Link to this heading"></a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="MainApp.migrations.html">MainApp.migrations package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="MainApp.migrations.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MainApp.migrations.html#module-MainApp.migrations.0001_initial">MainApp.migrations.0001_initial module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="MainApp.migrations.html#MainApp.migrations.0001_initial.Migration"><code class="docutils literal notranslate"><span class="pre">Migration</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="MainApp.migrations.html#MainApp.migrations.0001_initial.Migration.dependencies"><code class="docutils literal notranslate"><span class="pre">Migration.dependencies</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="MainApp.migrations.html#MainApp.migrations.0001_initial.Migration.initial"><code class="docutils literal notranslate"><span class="pre">Migration.initial</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="MainApp.migrations.html#MainApp.migrations.0001_initial.Migration.operations"><code class="docutils literal notranslate"><span class="pre">Migration.operations</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="MainApp.migrations.html#module-MainApp.migrations.0002_message">MainApp.migrations.0002_message module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="MainApp.migrations.html#MainApp.migrations.0002_message.Migration"><code class="docutils literal notranslate"><span class="pre">Migration</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="MainApp.migrations.html#MainApp.migrations.0002_message.Migration.dependencies"><code class="docutils literal notranslate"><span class="pre">Migration.dependencies</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="MainApp.migrations.html#MainApp.migrations.0002_message.Migration.operations"><code class="docutils literal notranslate"><span class="pre">Migration.operations</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="MainApp.migrations.html#module-MainApp.migrations.0002_userprofile_phone_no">MainApp.migrations.0002_userprofile_phone_no module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="MainApp.migrations.html#MainApp.migrations.0002_userprofile_phone_no.Migration"><code class="docutils literal notranslate"><span class="pre">Migration</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="MainApp.migrations.html#MainApp.migrations.0002_userprofile_phone_no.Migration.dependencies"><code class="docutils literal notranslate"><span class="pre">Migration.dependencies</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="MainApp.migrations.html#MainApp.migrations.0002_userprofile_phone_no.Migration.operations"><code class="docutils literal notranslate"><span class="pre">Migration.operations</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="MainApp.migrations.html#module-MainApp.migrations.0003_merge_0002_message_0002_userprofile_phone_no">MainApp.migrations.0003_merge_0002_message_0002_userprofile_phone_no module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="MainApp.migrations.html#MainApp.migrations.0003_merge_0002_message_0002_userprofile_phone_no.Migration"><code class="docutils literal notranslate"><span class="pre">Migration</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="MainApp.migrations.html#MainApp.migrations.0003_merge_0002_message_0002_userprofile_phone_no.Migration.dependencies"><code class="docutils literal notranslate"><span class="pre">Migration.dependencies</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="MainApp.migrations.html#MainApp.migrations.0003_merge_0002_message_0002_userprofile_phone_no.Migration.operations"><code class="docutils literal notranslate"><span class="pre">Migration.operations</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="MainApp.migrations.html#module-MainApp.migrations">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading"></a></h2>
+</section>
+<section id="module-MainApp.add_customer_UnitTesting">
+<span id="mainapp-add-customer-unittesting-module"></span><h2>MainApp.add_customer_UnitTesting module<a class="headerlink" href="#module-MainApp.add_customer_UnitTesting" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="MainApp.add_customer_UnitTesting.AddCustomerViewTest">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">MainApp.add_customer_UnitTesting.</span></span><span class="sig-name descname"><span class="pre">AddCustomerViewTest</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">methodName</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'runTest'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MainApp/add_customer_UnitTesting.html#AddCustomerViewTest"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#MainApp.add_customer_UnitTesting.AddCustomerViewTest" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">TestCase</span></code></p>
+<p>Test case for the add_customer view.</p>
+<section id="methods">
+<h3>Methods:<a class="headerlink" href="#methods" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>setUp(self)</dt><dd><p>Sets up the necessary data for testing.</p>
+</dd>
+<dt>test_add_customer_view(self)</dt><dd><p>Tests the behavior of the add_customer view for GET requests.</p>
+</dd>
+<dt>test_add_customer_post(self)</dt><dd><p>Tests the behavior of the add_customer view for POST requests.</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="MainApp.add_customer_UnitTesting.AddCustomerViewTest.setUp">
+<span class="sig-name descname"><span class="pre">setUp</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/MainApp/add_customer_UnitTesting.html#AddCustomerViewTest.setUp"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#MainApp.add_customer_UnitTesting.AddCustomerViewTest.setUp" title="Link to this definition"></a></dt>
+<dd><p>Set up the necessary data for testing.</p>
+<p>Creates a test user and logs in with the user credentials.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="MainApp.add_customer_UnitTesting.AddCustomerViewTest.test_add_customer_post">
+<span class="sig-name descname"><span class="pre">test_add_customer_post</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/MainApp/add_customer_UnitTesting.html#AddCustomerViewTest.test_add_customer_post"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#MainApp.add_customer_UnitTesting.AddCustomerViewTest.test_add_customer_post" title="Link to this definition"></a></dt>
+<dd><p>Test the behavior of the add_customer view for POST requests.</p>
+<p>Checks if the view redirects to the admin dashboard upon successful form submission,
+and verifies if the user and user profile are created in the database.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="MainApp.add_customer_UnitTesting.AddCustomerViewTest.test_add_customer_view">
+<span class="sig-name descname"><span class="pre">test_add_customer_view</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/MainApp/add_customer_UnitTesting.html#AddCustomerViewTest.test_add_customer_view"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#MainApp.add_customer_UnitTesting.AddCustomerViewTest.test_add_customer_view" title="Link to this definition"></a></dt>
+<dd><p>Test the behavior of the add_customer view for GET requests.</p>
+<p>Checks if the view returns a status code of 200, uses the correct template,
+and passes a CustomerCreationForm instance to the template context.</p>
+</dd></dl>
+
+</section>
+</dd></dl>
+
+</section>
+<section id="module-MainApp.add_customer_views">
+<span id="mainapp-add-customer-views-module"></span><h2>MainApp.add_customer_views module<a class="headerlink" href="#module-MainApp.add_customer_views" title="Link to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="MainApp.add_customer_views.add_customer">
+<span class="sig-prename descclassname"><span class="pre">MainApp.add_customer_views.</span></span><span class="sig-name descname"><span class="pre">add_customer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MainApp/add_customer_views.html#add_customer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#MainApp.add_customer_views.add_customer" title="Link to this definition"></a></dt>
+<dd><p>View function to add a new customer.</p>
+<p>If the request method is POST, the function validates the form data and saves the new customer.
+If the form is valid, a success message is displayed, and the user is redirected to the admin dashboard.
+If the request method is GET, a new instance of the CustomerCreationForm is created.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>request</strong> – HttpRequest object representing the request made to the server.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Rendered HTML template with the form for adding a new customer.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-MainApp.add_money_UnitTesting">
+<span id="mainapp-add-money-unittesting-module"></span><h2>MainApp.add_money_UnitTesting module<a class="headerlink" href="#module-MainApp.add_money_UnitTesting" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="MainApp.add_money_UnitTesting.AddMoneyViewTest">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">MainApp.add_money_UnitTesting.</span></span><span class="sig-name descname"><span class="pre">AddMoneyViewTest</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">methodName</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'runTest'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MainApp/add_money_UnitTesting.html#AddMoneyViewTest"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#MainApp.add_money_UnitTesting.AddMoneyViewTest" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">TestCase</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="MainApp.add_money_UnitTesting.AddMoneyViewTest.setUpTestData">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">setUpTestData</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/MainApp/add_money_UnitTesting.html#AddMoneyViewTest.setUpTestData"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#MainApp.add_money_UnitTesting.AddMoneyViewTest.setUpTestData" title="Link to this definition"></a></dt>
+<dd><p>Load initial data for the TestCase.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="MainApp.add_money_UnitTesting.AddMoneyViewTest.test_add_money_view">
+<span class="sig-name descname"><span class="pre">test_add_money_view</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/MainApp/add_money_UnitTesting.html#AddMoneyViewTest.test_add_money_view"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#MainApp.add_money_UnitTesting.AddMoneyViewTest.test_add_money_view" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-MainApp.add_money_views">
+<span id="mainapp-add-money-views-module"></span><h2>MainApp.add_money_views module<a class="headerlink" href="#module-MainApp.add_money_views" title="Link to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="MainApp.add_money_views.add_money">
+<span class="sig-prename descclassname"><span class="pre">MainApp.add_money_views.</span></span><span class="sig-name descname"><span class="pre">add_money</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">customer_id</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MainApp/add_money_views.html#add_money"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#MainApp.add_money_views.add_money" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</section>
+<section id="module-MainApp.admin">
+<span id="mainapp-admin-module"></span><h2>MainApp.admin module<a class="headerlink" href="#module-MainApp.admin" title="Link to this heading"></a></h2>
+</section>
+<section id="module-MainApp.all_transaction_test">
+<span id="mainapp-all-transaction-test-module"></span><h2>MainApp.all_transaction_test module<a class="headerlink" href="#module-MainApp.all_transaction_test" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="MainApp.all_transaction_test.SeeAllTransactionsTestCase">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">MainApp.all_transaction_test.</span></span><span class="sig-name descname"><span class="pre">SeeAllTransactionsTestCase</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">methodName</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'runTest'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MainApp/all_transaction_test.html#SeeAllTransactionsTestCase"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#MainApp.all_transaction_test.SeeAllTransactionsTestCase" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">TestCase</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="MainApp.all_transaction_test.SeeAllTransactionsTestCase.setUp">
+<span class="sig-name descname"><span class="pre">setUp</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/MainApp/all_transaction_test.html#SeeAllTransactionsTestCase.setUp"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#MainApp.all_transaction_test.SeeAllTransactionsTestCase.setUp" title="Link to this definition"></a></dt>
+<dd><p>Hook method for setting up the test fixture before exercising it.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="MainApp.all_transaction_test.SeeAllTransactionsTestCase.test_admin_can_see_all_transactions">
+<span class="sig-name descname"><span class="pre">test_admin_can_see_all_transactions</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/MainApp/all_transaction_test.html#SeeAllTransactionsTestCase.test_admin_can_see_all_transactions"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#MainApp.all_transaction_test.SeeAllTransactionsTestCase.test_admin_can_see_all_transactions" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="MainApp.all_transaction_test.SeeAllTransactionsTestCase.test_regular_user_redirected">
+<span class="sig-name descname"><span class="pre">test_regular_user_redirected</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/MainApp/all_transaction_test.html#SeeAllTransactionsTestCase.test_regular_user_redirected"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#MainApp.all_transaction_test.SeeAllTransactionsTestCase.test_regular_user_redirected" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="MainApp.all_transaction_test.SeeAllTransactionsTestCase.test_unauthenticated_user_redirected_to_login">
+<span class="sig-name descname"><span class="pre">test_unauthenticated_user_redirected_to_login</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/MainApp/all_transaction_test.html#SeeAllTransactionsTestCase.test_unauthenticated_user_redirected_to_login"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#MainApp.all_transaction_test.SeeAllTransactionsTestCase.test_unauthenticated_user_redirected_to_login" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-MainApp.all_transaction_views">
+<span id="mainapp-all-transaction-views-module"></span><h2>MainApp.all_transaction_views module<a class="headerlink" href="#module-MainApp.all_transaction_views" title="Link to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="MainApp.all_transaction_views.see_all_transactions">
+<span class="sig-prename descclassname"><span class="pre">MainApp.all_transaction_views.</span></span><span class="sig-name descname"><span class="pre">see_all_transactions</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MainApp/all_transaction_views.html#see_all_transactions"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#MainApp.all_transaction_views.see_all_transactions" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</section>
+<section id="module-MainApp.apps">
+<span id="mainapp-apps-module"></span><h2>MainApp.apps module<a class="headerlink" href="#module-MainApp.apps" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="MainApp.apps.MainappConfig">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">MainApp.apps.</span></span><span class="sig-name descname"><span class="pre">MainappConfig</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">app_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">app_module</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MainApp/apps.html#MainappConfig"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#MainApp.apps.MainappConfig" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">AppConfig</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="MainApp.apps.MainappConfig.default_auto_field">
+<span class="sig-name descname"><span class="pre">default_auto_field</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'django.db.models.BigAutoField'</span></em><a class="headerlink" href="#MainApp.apps.MainappConfig.default_auto_field" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="MainApp.apps.MainappConfig.name">
+<span class="sig-name descname"><span class="pre">name</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'MainApp'</span></em><a class="headerlink" href="#MainApp.apps.MainappConfig.name" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-MainApp.chat_system_unitTesting">
+<span id="mainapp-chat-system-unittesting-module"></span><h2>MainApp.chat_system_unitTesting module<a class="headerlink" href="#module-MainApp.chat_system_unitTesting" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="MainApp.chat_system_unitTesting.MessageModelTestCase">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">MainApp.chat_system_unitTesting.</span></span><span class="sig-name descname"><span class="pre">MessageModelTestCase</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">methodName</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'runTest'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MainApp/chat_system_unitTesting.html#MessageModelTestCase"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#MainApp.chat_system_unitTesting.MessageModelTestCase" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">TestCase</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="MainApp.chat_system_unitTesting.MessageModelTestCase.setUp">
+<span class="sig-name descname"><span class="pre">setUp</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/MainApp/chat_system_unitTesting.html#MessageModelTestCase.setUp"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#MainApp.chat_system_unitTesting.MessageModelTestCase.setUp" title="Link to this definition"></a></dt>
+<dd><p>Hook method for setting up the test fixture before exercising it.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="MainApp.chat_system_unitTesting.MessageModelTestCase.test_message_creation">
+<span class="sig-name descname"><span class="pre">test_message_creation</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/MainApp/chat_system_unitTesting.html#MessageModelTestCase.test_message_creation"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#MainApp.chat_system_unitTesting.MessageModelTestCase.test_message_creation" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="MainApp.chat_system_unitTesting.MessageViewsTestCase">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">MainApp.chat_system_unitTesting.</span></span><span class="sig-name descname"><span class="pre">MessageViewsTestCase</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">methodName</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'runTest'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MainApp/chat_system_unitTesting.html#MessageViewsTestCase"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#MainApp.chat_system_unitTesting.MessageViewsTestCase" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">TestCase</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="MainApp.chat_system_unitTesting.MessageViewsTestCase.setUp">
+<span class="sig-name descname"><span class="pre">setUp</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/MainApp/chat_system_unitTesting.html#MessageViewsTestCase.setUp"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#MainApp.chat_system_unitTesting.MessageViewsTestCase.setUp" title="Link to this definition"></a></dt>
+<dd><p>Hook method for setting up the test fixture before exercising it.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="MainApp.chat_system_unitTesting.MessageViewsTestCase.test_inbox_view">
+<span class="sig-name descname"><span class="pre">test_inbox_view</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/MainApp/chat_system_unitTesting.html#MessageViewsTestCase.test_inbox_view"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#MainApp.chat_system_unitTesting.MessageViewsTestCase.test_inbox_view" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="MainApp.chat_system_unitTesting.MessageViewsTestCase.test_send_message_view">
+<span class="sig-name descname"><span class="pre">test_send_message_view</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/MainApp/chat_system_unitTesting.html#MessageViewsTestCase.test_send_message_view"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#MainApp.chat_system_unitTesting.MessageViewsTestCase.test_send_message_view" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="MainApp.chat_system_unitTesting.MessageViewsTestCase.test_sentbox_view">
+<span class="sig-name descname"><span class="pre">test_sentbox_view</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/MainApp/chat_system_unitTesting.html#MessageViewsTestCase.test_sentbox_view"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#MainApp.chat_system_unitTesting.MessageViewsTestCase.test_sentbox_view" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-MainApp.chat_system_views">
+<span id="mainapp-chat-system-views-module"></span><h2>MainApp.chat_system_views module<a class="headerlink" href="#module-MainApp.chat_system_views" title="Link to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="MainApp.chat_system_views.inbox">
+<span class="sig-prename descclassname"><span class="pre">MainApp.chat_system_views.</span></span><span class="sig-name descname"><span class="pre">inbox</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MainApp/chat_system_views.html#inbox"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#MainApp.chat_system_views.inbox" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="MainApp.chat_system_views.send_message">
+<span class="sig-prename descclassname"><span class="pre">MainApp.chat_system_views.</span></span><span class="sig-name descname"><span class="pre">send_message</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">username</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MainApp/chat_system_views.html#send_message"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#MainApp.chat_system_views.send_message" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="MainApp.chat_system_views.sentbox">
+<span class="sig-prename descclassname"><span class="pre">MainApp.chat_system_views.</span></span><span class="sig-name descname"><span class="pre">sentbox</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MainApp/chat_system_views.html#sentbox"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#MainApp.chat_system_views.sentbox" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</section>
+<section id="module-MainApp.customer_dashboard_views">
+<span id="mainapp-customer-dashboard-views-module"></span><h2>MainApp.customer_dashboard_views module<a class="headerlink" href="#module-MainApp.customer_dashboard_views" title="Link to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="MainApp.customer_dashboard_views.add_money">
+<span class="sig-prename descclassname"><span class="pre">MainApp.customer_dashboard_views.</span></span><span class="sig-name descname"><span class="pre">add_money</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MainApp/customer_dashboard_views.html#add_money"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#MainApp.customer_dashboard_views.add_money" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="MainApp.customer_dashboard_views.chat_with_admin">
+<span class="sig-prename descclassname"><span class="pre">MainApp.customer_dashboard_views.</span></span><span class="sig-name descname"><span class="pre">chat_with_admin</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MainApp/customer_dashboard_views.html#chat_with_admin"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#MainApp.customer_dashboard_views.chat_with_admin" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="MainApp.customer_dashboard_views.customer_dashboard">
+<span class="sig-prename descclassname"><span class="pre">MainApp.customer_dashboard_views.</span></span><span class="sig-name descname"><span class="pre">customer_dashboard</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MainApp/customer_dashboard_views.html#customer_dashboard"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#MainApp.customer_dashboard_views.customer_dashboard" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="MainApp.customer_dashboard_views.send_money">
+<span class="sig-prename descclassname"><span class="pre">MainApp.customer_dashboard_views.</span></span><span class="sig-name descname"><span class="pre">send_money</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MainApp/customer_dashboard_views.html#send_money"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#MainApp.customer_dashboard_views.send_money" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="MainApp.customer_dashboard_views.transaction_details">
+<span class="sig-prename descclassname"><span class="pre">MainApp.customer_dashboard_views.</span></span><span class="sig-name descname"><span class="pre">transaction_details</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MainApp/customer_dashboard_views.html#transaction_details"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#MainApp.customer_dashboard_views.transaction_details" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="MainApp.customer_dashboard_views.update_profile">
+<span class="sig-prename descclassname"><span class="pre">MainApp.customer_dashboard_views.</span></span><span class="sig-name descname"><span class="pre">update_profile</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MainApp/customer_dashboard_views.html#update_profile"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#MainApp.customer_dashboard_views.update_profile" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</section>
+<section id="module-MainApp.forms">
+<span id="mainapp-forms-module"></span><h2>MainApp.forms module<a class="headerlink" href="#module-MainApp.forms" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="MainApp.forms.AddMoneyForm">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">MainApp.forms.</span></span><span class="sig-name descname"><span class="pre">AddMoneyForm</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">files=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">auto_id='id_%s'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prefix=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">initial=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">error_class=&lt;class</span> <span class="pre">'django.forms.utils.ErrorList'&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label_suffix=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">empty_permitted=False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">instance=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_required_attribute=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">renderer=None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MainApp/forms.html#AddMoneyForm"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#MainApp.forms.AddMoneyForm" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ModelForm</span></code></p>
+<dl class="py class">
+<dt class="sig sig-object py" id="MainApp.forms.AddMoneyForm.Meta">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Meta</span></span><a class="reference internal" href="_modules/MainApp/forms.html#AddMoneyForm.Meta"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#MainApp.forms.AddMoneyForm.Meta" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="MainApp.forms.AddMoneyForm.Meta.fields">
+<span class="sig-name descname"><span class="pre">fields</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['balance']</span></em><a class="headerlink" href="#MainApp.forms.AddMoneyForm.Meta.fields" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="MainApp.forms.AddMoneyForm.Meta.model">
+<span class="sig-name descname"><span class="pre">model</span></span><a class="headerlink" href="#MainApp.forms.AddMoneyForm.Meta.model" title="Link to this definition"></a></dt>
+<dd><p>alias of <a class="reference internal" href="#MainApp.models.UserProfile" title="MainApp.models.UserProfile"><code class="xref py py-class docutils literal notranslate"><span class="pre">UserProfile</span></code></a></p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="MainApp.forms.AddMoneyForm.base_fields">
+<span class="sig-name descname"><span class="pre">base_fields</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'balance':</span> <span class="pre">&lt;django.forms.fields.DecimalField</span> <span class="pre">object&gt;}</span></em><a class="headerlink" href="#MainApp.forms.AddMoneyForm.base_fields" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="MainApp.forms.AddMoneyForm.declared_fields">
+<span class="sig-name descname"><span class="pre">declared_fields</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{}</span></em><a class="headerlink" href="#MainApp.forms.AddMoneyForm.declared_fields" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="MainApp.forms.AddMoneyForm.media">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">media</span></span><a class="headerlink" href="#MainApp.forms.AddMoneyForm.media" title="Link to this definition"></a></dt>
+<dd><p>Return all media required to render the widgets on this form.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="MainApp.forms.CustomerCreationForm">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">MainApp.forms.</span></span><span class="sig-name descname"><span class="pre">CustomerCreationForm</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MainApp/forms.html#CustomerCreationForm"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#MainApp.forms.CustomerCreationForm" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">UserCreationForm</span></code></p>
+<dl class="py class">
+<dt class="sig sig-object py" id="MainApp.forms.CustomerCreationForm.Meta">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Meta</span></span><a class="reference internal" href="_modules/MainApp/forms.html#CustomerCreationForm.Meta"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#MainApp.forms.CustomerCreationForm.Meta" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="MainApp.forms.CustomerCreationForm.Meta.fields">
+<span class="sig-name descname"><span class="pre">fields</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['first_name',</span> <span class="pre">'last_name',</span> <span class="pre">'username',</span> <span class="pre">'email',</span> <span class="pre">'password1',</span> <span class="pre">'password2']</span></em><a class="headerlink" href="#MainApp.forms.CustomerCreationForm.Meta.fields" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="MainApp.forms.CustomerCreationForm.Meta.model">
+<span class="sig-name descname"><span class="pre">model</span></span><a class="headerlink" href="#MainApp.forms.CustomerCreationForm.Meta.model" title="Link to this definition"></a></dt>
+<dd><p>alias of <code class="xref py py-class docutils literal notranslate"><span class="pre">User</span></code></p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="MainApp.forms.CustomerCreationForm.base_fields">
+<span class="sig-name descname"><span class="pre">base_fields</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'bank_account_no':</span> <span class="pre">&lt;django.forms.fields.CharField</span> <span class="pre">object&gt;,</span> <span class="pre">'email':</span> <span class="pre">&lt;django.forms.fields.EmailField</span> <span class="pre">object&gt;,</span> <span class="pre">'first_name':</span> <span class="pre">&lt;django.forms.fields.CharField</span> <span class="pre">object&gt;,</span> <span class="pre">'last_name':</span> <span class="pre">&lt;django.forms.fields.CharField</span> <span class="pre">object&gt;,</span> <span class="pre">'password1':</span> <span class="pre">&lt;django.forms.fields.CharField</span> <span class="pre">object&gt;,</span> <span class="pre">'password2':</span> <span class="pre">&lt;django.forms.fields.CharField</span> <span class="pre">object&gt;,</span> <span class="pre">'username':</span> <span class="pre">&lt;django.forms.fields.CharField</span> <span class="pre">object&gt;}</span></em><a class="headerlink" href="#MainApp.forms.CustomerCreationForm.base_fields" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="MainApp.forms.CustomerCreationForm.declared_fields">
+<span class="sig-name descname"><span class="pre">declared_fields</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'bank_account_no':</span> <span class="pre">&lt;django.forms.fields.CharField</span> <span class="pre">object&gt;,</span> <span class="pre">'password1':</span> <span class="pre">&lt;django.forms.fields.CharField</span> <span class="pre">object&gt;,</span> <span class="pre">'password2':</span> <span class="pre">&lt;django.forms.fields.CharField</span> <span class="pre">object&gt;}</span></em><a class="headerlink" href="#MainApp.forms.CustomerCreationForm.declared_fields" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="MainApp.forms.CustomerCreationForm.media">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">media</span></span><a class="headerlink" href="#MainApp.forms.CustomerCreationForm.media" title="Link to this definition"></a></dt>
+<dd><p>Return all media required to render the widgets on this form.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="MainApp.forms.CustomerCreationForm.phone_no">
+<span class="sig-name descname"><span class="pre">phone_no</span></span><a class="headerlink" href="#MainApp.forms.CustomerCreationForm.phone_no" title="Link to this definition"></a></dt>
+<dd><p>Metadata for the form.</p>
+<section id="attributes">
+<h3>Attributes:<a class="headerlink" href="#attributes" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>model<span class="classifier">User</span></dt><dd><p>The model used for the form.</p>
+</dd>
+<dt>fields<span class="classifier">list of str</span></dt><dd><p>The fields to include in the form.</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="MainApp.forms.CustomerCreationForm.save">
+<span class="sig-name descname"><span class="pre">save</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">commit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MainApp/forms.html#CustomerCreationForm.save"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#MainApp.forms.CustomerCreationForm.save" title="Link to this definition"></a></dt>
+<dd><p>Save this form’s self.instance object if commit=True. Otherwise, add
+a save_m2m() method to the form which can be called after the instance
+is saved manually at a later time. Return the model instance.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="MainApp.forms.CustomerUpdateForm">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">MainApp.forms.</span></span><span class="sig-name descname"><span class="pre">CustomerUpdateForm</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">files=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">auto_id='id_%s'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prefix=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">initial=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">error_class=&lt;class</span> <span class="pre">'django.forms.utils.ErrorList'&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label_suffix=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">empty_permitted=False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">instance=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_required_attribute=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">renderer=None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MainApp/forms.html#CustomerUpdateForm"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#MainApp.forms.CustomerUpdateForm" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ModelForm</span></code></p>
+<dl class="py class">
+<dt class="sig sig-object py" id="MainApp.forms.CustomerUpdateForm.Meta">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Meta</span></span><a class="reference internal" href="_modules/MainApp/forms.html#CustomerUpdateForm.Meta"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#MainApp.forms.CustomerUpdateForm.Meta" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="MainApp.forms.CustomerUpdateForm.Meta.fields">
+<span class="sig-name descname"><span class="pre">fields</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['phone_no']</span></em><a class="headerlink" href="#MainApp.forms.CustomerUpdateForm.Meta.fields" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="MainApp.forms.CustomerUpdateForm.Meta.model">
+<span class="sig-name descname"><span class="pre">model</span></span><a class="headerlink" href="#MainApp.forms.CustomerUpdateForm.Meta.model" title="Link to this definition"></a></dt>
+<dd><p>alias of <a class="reference internal" href="#MainApp.models.UserProfile" title="MainApp.models.UserProfile"><code class="xref py py-class docutils literal notranslate"><span class="pre">UserProfile</span></code></a></p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="MainApp.forms.CustomerUpdateForm.base_fields">
+<span class="sig-name descname"><span class="pre">base_fields</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'phone_no':</span> <span class="pre">&lt;django.forms.fields.CharField</span> <span class="pre">object&gt;}</span></em><a class="headerlink" href="#MainApp.forms.CustomerUpdateForm.base_fields" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="MainApp.forms.CustomerUpdateForm.declared_fields">
+<span class="sig-name descname"><span class="pre">declared_fields</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{}</span></em><a class="headerlink" href="#MainApp.forms.CustomerUpdateForm.declared_fields" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="MainApp.forms.CustomerUpdateForm.media">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">media</span></span><a class="headerlink" href="#MainApp.forms.CustomerUpdateForm.media" title="Link to this definition"></a></dt>
+<dd><p>Return all media required to render the widgets on this form.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="MainApp.forms.CustomerUpdateForm.save">
+<span class="sig-name descname"><span class="pre">save</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">commit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MainApp/forms.html#CustomerUpdateForm.save"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#MainApp.forms.CustomerUpdateForm.save" title="Link to this definition"></a></dt>
+<dd><p>Save this form’s self.instance object if commit=True. Otherwise, add
+a save_m2m() method to the form which can be called after the instance
+is saved manually at a later time. Return the model instance.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="MainApp.forms.MessageForm">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">MainApp.forms.</span></span><span class="sig-name descname"><span class="pre">MessageForm</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">files=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">auto_id='id_%s'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prefix=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">initial=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">error_class=&lt;class</span> <span class="pre">'django.forms.utils.ErrorList'&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label_suffix=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">empty_permitted=False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">instance=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_required_attribute=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">renderer=None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MainApp/forms.html#MessageForm"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#MainApp.forms.MessageForm" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ModelForm</span></code></p>
+<dl class="py class">
+<dt class="sig sig-object py" id="MainApp.forms.MessageForm.Meta">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Meta</span></span><a class="reference internal" href="_modules/MainApp/forms.html#MessageForm.Meta"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#MainApp.forms.MessageForm.Meta" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="MainApp.forms.MessageForm.Meta.fields">
+<span class="sig-name descname"><span class="pre">fields</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['receiver',</span> <span class="pre">'subject',</span> <span class="pre">'body']</span></em><a class="headerlink" href="#MainApp.forms.MessageForm.Meta.fields" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="MainApp.forms.MessageForm.Meta.model">
+<span class="sig-name descname"><span class="pre">model</span></span><a class="headerlink" href="#MainApp.forms.MessageForm.Meta.model" title="Link to this definition"></a></dt>
+<dd><p>alias of <a class="reference internal" href="#MainApp.models.Message" title="MainApp.models.Message"><code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></a></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="MainApp.forms.MessageForm.Meta.widgets">
+<span class="sig-name descname"><span class="pre">widgets</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'body':</span> <span class="pre">&lt;django.forms.widgets.Textarea</span> <span class="pre">object&gt;}</span></em><a class="headerlink" href="#MainApp.forms.MessageForm.Meta.widgets" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="MainApp.forms.MessageForm.base_fields">
+<span class="sig-name descname"><span class="pre">base_fields</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'body':</span> <span class="pre">&lt;django.forms.fields.CharField</span> <span class="pre">object&gt;,</span> <span class="pre">'receiver':</span> <span class="pre">&lt;django.forms.models.ModelChoiceField</span> <span class="pre">object&gt;,</span> <span class="pre">'subject':</span> <span class="pre">&lt;django.forms.fields.CharField</span> <span class="pre">object&gt;}</span></em><a class="headerlink" href="#MainApp.forms.MessageForm.base_fields" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="MainApp.forms.MessageForm.declared_fields">
+<span class="sig-name descname"><span class="pre">declared_fields</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{}</span></em><a class="headerlink" href="#MainApp.forms.MessageForm.declared_fields" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="MainApp.forms.MessageForm.media">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">media</span></span><a class="headerlink" href="#MainApp.forms.MessageForm.media" title="Link to this definition"></a></dt>
+<dd><p>Return all media required to render the widgets on this form.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="MainApp.forms.MoneyTransferForm">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">MainApp.forms.</span></span><span class="sig-name descname"><span class="pre">MoneyTransferForm</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">files=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">auto_id='id_%s'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prefix=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">initial=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">error_class=&lt;class</span> <span class="pre">'django.forms.utils.ErrorList'&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label_suffix=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">empty_permitted=False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">field_order=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_required_attribute=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">renderer=None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MainApp/forms.html#MoneyTransferForm"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#MainApp.forms.MoneyTransferForm" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Form</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="MainApp.forms.MoneyTransferForm.base_fields">
+<span class="sig-name descname"><span class="pre">base_fields</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'amount':</span> <span class="pre">&lt;django.forms.fields.DecimalField</span> <span class="pre">object&gt;,</span> <span class="pre">'password':</span> <span class="pre">&lt;django.forms.fields.CharField</span> <span class="pre">object&gt;,</span> <span class="pre">'receiver_bank_account_no':</span> <span class="pre">&lt;django.forms.fields.CharField</span> <span class="pre">object&gt;,</span> <span class="pre">'receiver_email':</span> <span class="pre">&lt;django.forms.fields.EmailField</span> <span class="pre">object&gt;,</span> <span class="pre">'receiver_username':</span> <span class="pre">&lt;django.forms.fields.CharField</span> <span class="pre">object&gt;,</span> <span class="pre">'sender_bank_account_no':</span> <span class="pre">&lt;django.forms.fields.CharField</span> <span class="pre">object&gt;,</span> <span class="pre">'sender_username':</span> <span class="pre">&lt;django.forms.fields.CharField</span> <span class="pre">object&gt;}</span></em><a class="headerlink" href="#MainApp.forms.MoneyTransferForm.base_fields" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="MainApp.forms.MoneyTransferForm.declared_fields">
+<span class="sig-name descname"><span class="pre">declared_fields</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'amount':</span> <span class="pre">&lt;django.forms.fields.DecimalField</span> <span class="pre">object&gt;,</span> <span class="pre">'password':</span> <span class="pre">&lt;django.forms.fields.CharField</span> <span class="pre">object&gt;,</span> <span class="pre">'receiver_bank_account_no':</span> <span class="pre">&lt;django.forms.fields.CharField</span> <span class="pre">object&gt;,</span> <span class="pre">'receiver_email':</span> <span class="pre">&lt;django.forms.fields.EmailField</span> <span class="pre">object&gt;,</span> <span class="pre">'receiver_username':</span> <span class="pre">&lt;django.forms.fields.CharField</span> <span class="pre">object&gt;,</span> <span class="pre">'sender_bank_account_no':</span> <span class="pre">&lt;django.forms.fields.CharField</span> <span class="pre">object&gt;,</span> <span class="pre">'sender_username':</span> <span class="pre">&lt;django.forms.fields.CharField</span> <span class="pre">object&gt;}</span></em><a class="headerlink" href="#MainApp.forms.MoneyTransferForm.declared_fields" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="MainApp.forms.MoneyTransferForm.media">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">media</span></span><a class="headerlink" href="#MainApp.forms.MoneyTransferForm.media" title="Link to this definition"></a></dt>
+<dd><p>Return all media required to render the widgets on this form.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="MainApp.forms.ProfileUpdateForm">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">MainApp.forms.</span></span><span class="sig-name descname"><span class="pre">ProfileUpdateForm</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MainApp/forms.html#ProfileUpdateForm"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#MainApp.forms.ProfileUpdateForm" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ModelForm</span></code></p>
+<dl class="py class">
+<dt class="sig sig-object py" id="MainApp.forms.ProfileUpdateForm.Meta">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Meta</span></span><a class="reference internal" href="_modules/MainApp/forms.html#ProfileUpdateForm.Meta"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#MainApp.forms.ProfileUpdateForm.Meta" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="MainApp.forms.ProfileUpdateForm.Meta.fields">
+<span class="sig-name descname"><span class="pre">fields</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['phone_no']</span></em><a class="headerlink" href="#MainApp.forms.ProfileUpdateForm.Meta.fields" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="MainApp.forms.ProfileUpdateForm.Meta.model">
+<span class="sig-name descname"><span class="pre">model</span></span><a class="headerlink" href="#MainApp.forms.ProfileUpdateForm.Meta.model" title="Link to this definition"></a></dt>
+<dd><p>alias of <a class="reference internal" href="#MainApp.models.UserProfile" title="MainApp.models.UserProfile"><code class="xref py py-class docutils literal notranslate"><span class="pre">UserProfile</span></code></a></p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="MainApp.forms.ProfileUpdateForm.base_fields">
+<span class="sig-name descname"><span class="pre">base_fields</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'email':</span> <span class="pre">&lt;django.forms.fields.EmailField</span> <span class="pre">object&gt;,</span> <span class="pre">'first_name':</span> <span class="pre">&lt;django.forms.fields.CharField</span> <span class="pre">object&gt;,</span> <span class="pre">'last_name':</span> <span class="pre">&lt;django.forms.fields.CharField</span> <span class="pre">object&gt;,</span> <span class="pre">'phone_no':</span> <span class="pre">&lt;django.forms.fields.CharField</span> <span class="pre">object&gt;}</span></em><a class="headerlink" href="#MainApp.forms.ProfileUpdateForm.base_fields" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="MainApp.forms.ProfileUpdateForm.declared_fields">
+<span class="sig-name descname"><span class="pre">declared_fields</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'email':</span> <span class="pre">&lt;django.forms.fields.EmailField</span> <span class="pre">object&gt;,</span> <span class="pre">'first_name':</span> <span class="pre">&lt;django.forms.fields.CharField</span> <span class="pre">object&gt;,</span> <span class="pre">'last_name':</span> <span class="pre">&lt;django.forms.fields.CharField</span> <span class="pre">object&gt;}</span></em><a class="headerlink" href="#MainApp.forms.ProfileUpdateForm.declared_fields" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="MainApp.forms.ProfileUpdateForm.media">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">media</span></span><a class="headerlink" href="#MainApp.forms.ProfileUpdateForm.media" title="Link to this definition"></a></dt>
+<dd><p>Return all media required to render the widgets on this form.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="MainApp.forms.ProfileUpdateForm.save">
+<span class="sig-name descname"><span class="pre">save</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">commit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MainApp/forms.html#ProfileUpdateForm.save"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#MainApp.forms.ProfileUpdateForm.save" title="Link to this definition"></a></dt>
+<dd><p>Save this form’s self.instance object if commit=True. Otherwise, add
+a save_m2m() method to the form which can be called after the instance
+is saved manually at a later time. Return the model instance.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-MainApp.login_logout_views">
+<span id="mainapp-login-logout-views-module"></span><h2>MainApp.login_logout_views module<a class="headerlink" href="#module-MainApp.login_logout_views" title="Link to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="MainApp.login_logout_views.custom_login">
+<span class="sig-prename descclassname"><span class="pre">MainApp.login_logout_views.</span></span><span class="sig-name descname"><span class="pre">custom_login</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MainApp/login_logout_views.html#custom_login"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#MainApp.login_logout_views.custom_login" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="MainApp.login_logout_views.customer_dashboard">
+<span class="sig-prename descclassname"><span class="pre">MainApp.login_logout_views.</span></span><span class="sig-name descname"><span class="pre">customer_dashboard</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MainApp/login_logout_views.html#customer_dashboard"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#MainApp.login_logout_views.customer_dashboard" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="MainApp.login_logout_views.logout_view">
+<span class="sig-prename descclassname"><span class="pre">MainApp.login_logout_views.</span></span><span class="sig-name descname"><span class="pre">logout_view</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MainApp/login_logout_views.html#logout_view"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#MainApp.login_logout_views.logout_view" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</section>
+<section id="mainapp-login-unit-testing-sb-module">
+<h2>MainApp.login_unit_testing_SB module<a class="headerlink" href="#mainapp-login-unit-testing-sb-module" title="Link to this heading"></a></h2>
+</section>
+<section id="module-MainApp.models">
+<span id="mainapp-models-module"></span><h2>MainApp.models module<a class="headerlink" href="#module-MainApp.models" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="MainApp.models.Message">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">MainApp.models.</span></span><span class="sig-name descname"><span class="pre">Message</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sender</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">receiver</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">subject</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">body</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">created_at</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MainApp/models.html#Message"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#MainApp.models.Message" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Model</span></code></p>
+<dl class="py exception">
+<dt class="sig sig-object py" id="MainApp.models.Message.DoesNotExist">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">DoesNotExist</span></span><a class="headerlink" href="#MainApp.models.Message.DoesNotExist" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ObjectDoesNotExist</span></code></p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="MainApp.models.Message.MultipleObjectsReturned">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">MultipleObjectsReturned</span></span><a class="headerlink" href="#MainApp.models.Message.MultipleObjectsReturned" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">MultipleObjectsReturned</span></code></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="MainApp.models.Message.body">
+<span class="sig-name descname"><span class="pre">body</span></span><a class="headerlink" href="#MainApp.models.Message.body" title="Link to this definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="MainApp.models.Message.created_at">
+<span class="sig-name descname"><span class="pre">created_at</span></span><a class="headerlink" href="#MainApp.models.Message.created_at" title="Link to this definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="MainApp.models.Message.get_next_by_created_at">
+<span class="sig-name descname"><span class="pre">get_next_by_created_at</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">field=&lt;django.db.models.fields.DateTimeField:</span> <span class="pre">created_at&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_next=True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">**kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#MainApp.models.Message.get_next_by_created_at" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="MainApp.models.Message.get_previous_by_created_at">
+<span class="sig-name descname"><span class="pre">get_previous_by_created_at</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">field=&lt;django.db.models.fields.DateTimeField:</span> <span class="pre">created_at&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_next=False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">**kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#MainApp.models.Message.get_previous_by_created_at" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="MainApp.models.Message.id">
+<span class="sig-name descname"><span class="pre">id</span></span><a class="headerlink" href="#MainApp.models.Message.id" title="Link to this definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="MainApp.models.Message.objects">
+<span class="sig-name descname"><span class="pre">objects</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;django.db.models.manager.Manager</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#MainApp.models.Message.objects" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="MainApp.models.Message.receiver">
+<span class="sig-name descname"><span class="pre">receiver</span></span><a class="headerlink" href="#MainApp.models.Message.receiver" title="Link to this definition"></a></dt>
+<dd><p>Accessor to the related object on the forward side of a many-to-one or
+one-to-one (via ForwardOneToOneDescriptor subclass) relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Child.parent</span></code> is a <code class="docutils literal notranslate"><span class="pre">ForwardManyToOneDescriptor</span></code> instance.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="MainApp.models.Message.receiver_id">
+<span class="sig-name descname"><span class="pre">receiver_id</span></span><a class="headerlink" href="#MainApp.models.Message.receiver_id" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="MainApp.models.Message.sender">
+<span class="sig-name descname"><span class="pre">sender</span></span><a class="headerlink" href="#MainApp.models.Message.sender" title="Link to this definition"></a></dt>
+<dd><p>Accessor to the related object on the forward side of a many-to-one or
+one-to-one (via ForwardOneToOneDescriptor subclass) relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Child.parent</span></code> is a <code class="docutils literal notranslate"><span class="pre">ForwardManyToOneDescriptor</span></code> instance.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="MainApp.models.Message.sender_id">
+<span class="sig-name descname"><span class="pre">sender_id</span></span><a class="headerlink" href="#MainApp.models.Message.sender_id" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="MainApp.models.Message.subject">
+<span class="sig-name descname"><span class="pre">subject</span></span><a class="headerlink" href="#MainApp.models.Message.subject" title="Link to this definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="MainApp.models.Transaction">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">MainApp.models.</span></span><span class="sig-name descname"><span class="pre">Transaction</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sender_account_no</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">receiver_account_no</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">amount</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">date</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">transaction_id</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MainApp/models.html#Transaction"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#MainApp.models.Transaction" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Model</span></code></p>
+<dl class="py exception">
+<dt class="sig sig-object py" id="MainApp.models.Transaction.DoesNotExist">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">DoesNotExist</span></span><a class="headerlink" href="#MainApp.models.Transaction.DoesNotExist" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ObjectDoesNotExist</span></code></p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="MainApp.models.Transaction.MultipleObjectsReturned">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">MultipleObjectsReturned</span></span><a class="headerlink" href="#MainApp.models.Transaction.MultipleObjectsReturned" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">MultipleObjectsReturned</span></code></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="MainApp.models.Transaction.amount">
+<span class="sig-name descname"><span class="pre">amount</span></span><a class="headerlink" href="#MainApp.models.Transaction.amount" title="Link to this definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="MainApp.models.Transaction.date">
+<span class="sig-name descname"><span class="pre">date</span></span><a class="headerlink" href="#MainApp.models.Transaction.date" title="Link to this definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="MainApp.models.Transaction.generate_unique_transaction_id">
+<span class="sig-name descname"><span class="pre">generate_unique_transaction_id</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/MainApp/models.html#Transaction.generate_unique_transaction_id"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#MainApp.models.Transaction.generate_unique_transaction_id" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="MainApp.models.Transaction.get_next_by_date">
+<span class="sig-name descname"><span class="pre">get_next_by_date</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">field=&lt;django.db.models.fields.DateTimeField:</span> <span class="pre">date&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_next=True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">**kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#MainApp.models.Transaction.get_next_by_date" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="MainApp.models.Transaction.get_previous_by_date">
+<span class="sig-name descname"><span class="pre">get_previous_by_date</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">field=&lt;django.db.models.fields.DateTimeField:</span> <span class="pre">date&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_next=False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">**kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#MainApp.models.Transaction.get_previous_by_date" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="MainApp.models.Transaction.id">
+<span class="sig-name descname"><span class="pre">id</span></span><a class="headerlink" href="#MainApp.models.Transaction.id" title="Link to this definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="MainApp.models.Transaction.objects">
+<span class="sig-name descname"><span class="pre">objects</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;django.db.models.manager.Manager</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#MainApp.models.Transaction.objects" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="MainApp.models.Transaction.receiver_account_no">
+<span class="sig-name descname"><span class="pre">receiver_account_no</span></span><a class="headerlink" href="#MainApp.models.Transaction.receiver_account_no" title="Link to this definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="MainApp.models.Transaction.save">
+<span class="sig-name descname"><span class="pre">save</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MainApp/models.html#Transaction.save"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#MainApp.models.Transaction.save" title="Link to this definition"></a></dt>
+<dd><p>Save the current instance. Override this in a subclass if you want to
+control the saving process.</p>
+<p>The ‘force_insert’ and ‘force_update’ parameters can be used to insist
+that the “save” must be an SQL insert or update (or equivalent for
+non-SQL backends), respectively. Normally, they should not be set.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="MainApp.models.Transaction.sender_account_no">
+<span class="sig-name descname"><span class="pre">sender_account_no</span></span><a class="headerlink" href="#MainApp.models.Transaction.sender_account_no" title="Link to this definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="MainApp.models.Transaction.transaction_id">
+<span class="sig-name descname"><span class="pre">transaction_id</span></span><a class="headerlink" href="#MainApp.models.Transaction.transaction_id" title="Link to this definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="MainApp.models.UserProfile">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">MainApp.models.</span></span><span class="sig-name descname"><span class="pre">UserProfile</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">user</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bank_account_no</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">phone_no</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">balance</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MainApp/models.html#UserProfile"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#MainApp.models.UserProfile" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Model</span></code></p>
+<dl class="py exception">
+<dt class="sig sig-object py" id="MainApp.models.UserProfile.DoesNotExist">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">DoesNotExist</span></span><a class="headerlink" href="#MainApp.models.UserProfile.DoesNotExist" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ObjectDoesNotExist</span></code></p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="MainApp.models.UserProfile.MultipleObjectsReturned">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">MultipleObjectsReturned</span></span><a class="headerlink" href="#MainApp.models.UserProfile.MultipleObjectsReturned" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">MultipleObjectsReturned</span></code></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="MainApp.models.UserProfile.balance">
+<span class="sig-name descname"><span class="pre">balance</span></span><a class="headerlink" href="#MainApp.models.UserProfile.balance" title="Link to this definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="MainApp.models.UserProfile.bank_account_no">
+<span class="sig-name descname"><span class="pre">bank_account_no</span></span><a class="headerlink" href="#MainApp.models.UserProfile.bank_account_no" title="Link to this definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="MainApp.models.UserProfile.id">
+<span class="sig-name descname"><span class="pre">id</span></span><a class="headerlink" href="#MainApp.models.UserProfile.id" title="Link to this definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="MainApp.models.UserProfile.objects">
+<span class="sig-name descname"><span class="pre">objects</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;django.db.models.manager.Manager</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#MainApp.models.UserProfile.objects" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="MainApp.models.UserProfile.phone_no">
+<span class="sig-name descname"><span class="pre">phone_no</span></span><a class="headerlink" href="#MainApp.models.UserProfile.phone_no" title="Link to this definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="MainApp.models.UserProfile.user">
+<span class="sig-name descname"><span class="pre">user</span></span><a class="headerlink" href="#MainApp.models.UserProfile.user" title="Link to this definition"></a></dt>
+<dd><p>Accessor to the related object on the forward side of a one-to-one relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Restaurant</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">place</span> <span class="o">=</span> <span class="n">OneToOneField</span><span class="p">(</span><span class="n">Place</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;restaurant&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Restaurant.place</span></code> is a <code class="docutils literal notranslate"><span class="pre">ForwardOneToOneDescriptor</span></code> instance.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="MainApp.models.UserProfile.user_id">
+<span class="sig-name descname"><span class="pre">user_id</span></span><a class="headerlink" href="#MainApp.models.UserProfile.user_id" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-MainApp.money_transfer_UnitTesting">
+<span id="mainapp-money-transfer-unittesting-module"></span><h2>MainApp.money_transfer_UnitTesting module<a class="headerlink" href="#module-MainApp.money_transfer_UnitTesting" title="Link to this heading"></a></h2>
+<p>Unit Testing for money transfer</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="MainApp.money_transfer_UnitTesting.MoneyTransferViewTestCase">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">MainApp.money_transfer_UnitTesting.</span></span><span class="sig-name descname"><span class="pre">MoneyTransferViewTestCase</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">methodName</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'runTest'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MainApp/money_transfer_UnitTesting.html#MoneyTransferViewTestCase"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#MainApp.money_transfer_UnitTesting.MoneyTransferViewTestCase" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">TestCase</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="MainApp.money_transfer_UnitTesting.MoneyTransferViewTestCase.setUp">
+<span class="sig-name descname"><span class="pre">setUp</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/MainApp/money_transfer_UnitTesting.html#MoneyTransferViewTestCase.setUp"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#MainApp.money_transfer_UnitTesting.MoneyTransferViewTestCase.setUp" title="Link to this definition"></a></dt>
+<dd><p>Hook method for setting up the test fixture before exercising it.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="MainApp.money_transfer_UnitTesting.MoneyTransferViewTestCase.test_insufficient_balance">
+<span class="sig-name descname"><span class="pre">test_insufficient_balance</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/MainApp/money_transfer_UnitTesting.html#MoneyTransferViewTestCase.test_insufficient_balance"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#MainApp.money_transfer_UnitTesting.MoneyTransferViewTestCase.test_insufficient_balance" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="MainApp.money_transfer_UnitTesting.MoneyTransferViewTestCase.test_invalid_sender_credentials">
+<span class="sig-name descname"><span class="pre">test_invalid_sender_credentials</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/MainApp/money_transfer_UnitTesting.html#MoneyTransferViewTestCase.test_invalid_sender_credentials"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#MainApp.money_transfer_UnitTesting.MoneyTransferViewTestCase.test_invalid_sender_credentials" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="MainApp.money_transfer_UnitTesting.MoneyTransferViewTestCase.test_money_transfer_successful">
+<span class="sig-name descname"><span class="pre">test_money_transfer_successful</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/MainApp/money_transfer_UnitTesting.html#MoneyTransferViewTestCase.test_money_transfer_successful"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#MainApp.money_transfer_UnitTesting.MoneyTransferViewTestCase.test_money_transfer_successful" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-MainApp.money_transfer_views">
+<span id="mainapp-money-transfer-views-module"></span><h2>MainApp.money_transfer_views module<a class="headerlink" href="#module-MainApp.money_transfer_views" title="Link to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="MainApp.money_transfer_views.money_transfer">
+<span class="sig-prename descclassname"><span class="pre">MainApp.money_transfer_views.</span></span><span class="sig-name descname"><span class="pre">money_transfer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MainApp/money_transfer_views.html#money_transfer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#MainApp.money_transfer_views.money_transfer" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</section>
+<section id="module-MainApp.profile_update_unit_test_SB">
+<span id="mainapp-profile-update-unit-test-sb-module"></span><h2>MainApp.profile_update_unit_test_SB module<a class="headerlink" href="#module-MainApp.profile_update_unit_test_SB" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="MainApp.profile_update_unit_test_SB.YourAppViewsTestCase">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">MainApp.profile_update_unit_test_SB.</span></span><span class="sig-name descname"><span class="pre">YourAppViewsTestCase</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">methodName</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'runTest'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MainApp/profile_update_unit_test_SB.html#YourAppViewsTestCase"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#MainApp.profile_update_unit_test_SB.YourAppViewsTestCase" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">TestCase</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="MainApp.profile_update_unit_test_SB.YourAppViewsTestCase.setUp">
+<span class="sig-name descname"><span class="pre">setUp</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/MainApp/profile_update_unit_test_SB.html#YourAppViewsTestCase.setUp"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#MainApp.profile_update_unit_test_SB.YourAppViewsTestCase.setUp" title="Link to this definition"></a></dt>
+<dd><p>Hook method for setting up the test fixture before exercising it.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="MainApp.profile_update_unit_test_SB.YourAppViewsTestCase.test_customer_dashboard_view">
+<span class="sig-name descname"><span class="pre">test_customer_dashboard_view</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/MainApp/profile_update_unit_test_SB.html#YourAppViewsTestCase.test_customer_dashboard_view"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#MainApp.profile_update_unit_test_SB.YourAppViewsTestCase.test_customer_dashboard_view" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="MainApp.profile_update_unit_test_SB.YourAppViewsTestCase.test_home_view">
+<span class="sig-name descname"><span class="pre">test_home_view</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/MainApp/profile_update_unit_test_SB.html#YourAppViewsTestCase.test_home_view"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#MainApp.profile_update_unit_test_SB.YourAppViewsTestCase.test_home_view" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="MainApp.profile_update_unit_test_SB.YourAppViewsTestCase.test_logout_view">
+<span class="sig-name descname"><span class="pre">test_logout_view</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/MainApp/profile_update_unit_test_SB.html#YourAppViewsTestCase.test_logout_view"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#MainApp.profile_update_unit_test_SB.YourAppViewsTestCase.test_logout_view" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="MainApp.profile_update_unit_test_SB.YourAppViewsTestCase.test_update_profile_view">
+<span class="sig-name descname"><span class="pre">test_update_profile_view</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/MainApp/profile_update_unit_test_SB.html#YourAppViewsTestCase.test_update_profile_view"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#MainApp.profile_update_unit_test_SB.YourAppViewsTestCase.test_update_profile_view" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-MainApp.profile_update_views">
+<span id="mainapp-profile-update-views-module"></span><h2>MainApp.profile_update_views module<a class="headerlink" href="#module-MainApp.profile_update_views" title="Link to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="MainApp.profile_update_views.admin_dashboard">
+<span class="sig-prename descclassname"><span class="pre">MainApp.profile_update_views.</span></span><span class="sig-name descname"><span class="pre">admin_dashboard</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MainApp/profile_update_views.html#admin_dashboard"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#MainApp.profile_update_views.admin_dashboard" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="MainApp.profile_update_views.customer_dashboard">
+<span class="sig-prename descclassname"><span class="pre">MainApp.profile_update_views.</span></span><span class="sig-name descname"><span class="pre">customer_dashboard</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MainApp/profile_update_views.html#customer_dashboard"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#MainApp.profile_update_views.customer_dashboard" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="MainApp.profile_update_views.home">
+<span class="sig-prename descclassname"><span class="pre">MainApp.profile_update_views.</span></span><span class="sig-name descname"><span class="pre">home</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MainApp/profile_update_views.html#home"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#MainApp.profile_update_views.home" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="MainApp.profile_update_views.logout_view">
+<span class="sig-prename descclassname"><span class="pre">MainApp.profile_update_views.</span></span><span class="sig-name descname"><span class="pre">logout_view</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MainApp/profile_update_views.html#logout_view"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#MainApp.profile_update_views.logout_view" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="MainApp.profile_update_views.update_profile">
+<span class="sig-prename descclassname"><span class="pre">MainApp.profile_update_views.</span></span><span class="sig-name descname"><span class="pre">update_profile</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">customer_id</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MainApp/profile_update_views.html#update_profile"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#MainApp.profile_update_views.update_profile" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</section>
+<section id="module-MainApp.see_all_customer_views">
+<span id="mainapp-see-all-customer-views-module"></span><h2>MainApp.see_all_customer_views module<a class="headerlink" href="#module-MainApp.see_all_customer_views" title="Link to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="MainApp.see_all_customer_views.see_all_customers">
+<span class="sig-prename descclassname"><span class="pre">MainApp.see_all_customer_views.</span></span><span class="sig-name descname"><span class="pre">see_all_customers</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MainApp/see_all_customer_views.html#see_all_customers"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#MainApp.see_all_customer_views.see_all_customers" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</section>
+<section id="module-MainApp.tests">
+<span id="mainapp-tests-module"></span><h2>MainApp.tests module<a class="headerlink" href="#module-MainApp.tests" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="MainApp.tests.DeleteCustomerViewTest">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">MainApp.tests.</span></span><span class="sig-name descname"><span class="pre">DeleteCustomerViewTest</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">methodName</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'runTest'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MainApp/tests.html#DeleteCustomerViewTest"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#MainApp.tests.DeleteCustomerViewTest" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">TestCase</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="MainApp.tests.DeleteCustomerViewTest.setUp">
+<span class="sig-name descname"><span class="pre">setUp</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/MainApp/tests.html#DeleteCustomerViewTest.setUp"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#MainApp.tests.DeleteCustomerViewTest.setUp" title="Link to this definition"></a></dt>
+<dd><p>Hook method for setting up the test fixture before exercising it.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="MainApp.tests.DeleteCustomerViewTest.test_delete_customer">
+<span class="sig-name descname"><span class="pre">test_delete_customer</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/MainApp/tests.html#DeleteCustomerViewTest.test_delete_customer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#MainApp.tests.DeleteCustomerViewTest.test_delete_customer" title="Link to this definition"></a></dt>
+<dd><p>Test the deletion of a customer using a POST request.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="MainApp.tests.DeleteCustomerViewTest.test_delete_customer_get_request">
+<span class="sig-name descname"><span class="pre">test_delete_customer_get_request</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/MainApp/tests.html#DeleteCustomerViewTest.test_delete_customer_get_request"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#MainApp.tests.DeleteCustomerViewTest.test_delete_customer_get_request" title="Link to this definition"></a></dt>
+<dd><p>Test rendering the delete_customer.html template for a GET request.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-MainApp.unit_testing_customer_dashboard">
+<span id="mainapp-unit-testing-customer-dashboard-module"></span><h2>MainApp.unit_testing_customer_dashboard module<a class="headerlink" href="#module-MainApp.unit_testing_customer_dashboard" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="MainApp.unit_testing_customer_dashboard.CustomerDashboardTests">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">MainApp.unit_testing_customer_dashboard.</span></span><span class="sig-name descname"><span class="pre">CustomerDashboardTests</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">methodName</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'runTest'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MainApp/unit_testing_customer_dashboard.html#CustomerDashboardTests"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#MainApp.unit_testing_customer_dashboard.CustomerDashboardTests" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">TestCase</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="MainApp.unit_testing_customer_dashboard.CustomerDashboardTests.setUp">
+<span class="sig-name descname"><span class="pre">setUp</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/MainApp/unit_testing_customer_dashboard.html#CustomerDashboardTests.setUp"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#MainApp.unit_testing_customer_dashboard.CustomerDashboardTests.setUp" title="Link to this definition"></a></dt>
+<dd><p>Hook method for setting up the test fixture before exercising it.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="MainApp.unit_testing_customer_dashboard.CustomerDashboardTests.test_customer_dashboard_view">
+<span class="sig-name descname"><span class="pre">test_customer_dashboard_view</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/MainApp/unit_testing_customer_dashboard.html#CustomerDashboardTests.test_customer_dashboard_view"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#MainApp.unit_testing_customer_dashboard.CustomerDashboardTests.test_customer_dashboard_view" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="mainapp-unit-testing-see-all-customers-module">
+<h2>MainApp.unit_testing_see_all_customers module<a class="headerlink" href="#mainapp-unit-testing-see-all-customers-module" title="Link to this heading"></a></h2>
+</section>
+<section id="module-MainApp.urls">
+<span id="mainapp-urls-module"></span><h2>MainApp.urls module<a class="headerlink" href="#module-MainApp.urls" title="Link to this heading"></a></h2>
+</section>
+<section id="module-MainApp.views">
+<span id="mainapp-views-module"></span><h2>MainApp.views module<a class="headerlink" href="#module-MainApp.views" title="Link to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="MainApp.views.admin_dashboard">
+<span class="sig-prename descclassname"><span class="pre">MainApp.views.</span></span><span class="sig-name descname"><span class="pre">admin_dashboard</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MainApp/views.html#admin_dashboard"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#MainApp.views.admin_dashboard" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="MainApp.views.customer_transaction">
+<span class="sig-prename descclassname"><span class="pre">MainApp.views.</span></span><span class="sig-name descname"><span class="pre">customer_transaction</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">a</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MainApp/views.html#customer_transaction"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#MainApp.views.customer_transaction" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="MainApp.views.delete_customer">
+<span class="sig-prename descclassname"><span class="pre">MainApp.views.</span></span><span class="sig-name descname"><span class="pre">delete_customer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">customer_id</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MainApp/views.html#delete_customer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#MainApp.views.delete_customer" title="Link to this definition"></a></dt>
+<dd><p>View function to handle the deletion of a customer.</p>
+<p>Parameters:
+- request: The HTTP request object.
+- customer_id: The ID of the customer to be deleted.</p>
+<p>Returns:
+- If the request method is POST and deletion is successful, redirects to ‘see_all_customers’.
+- If the request method is GET, renders the ‘delete_customer.html’ template with customer data.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="MainApp.views.home">
+<span class="sig-prename descclassname"><span class="pre">MainApp.views.</span></span><span class="sig-name descname"><span class="pre">home</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/MainApp/views.html#home"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#MainApp.views.home" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</section>
+<section id="module-MainApp">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-MainApp" title="Link to this heading"></a></h2>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, ShifatiRabbi &amp; Team members.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
