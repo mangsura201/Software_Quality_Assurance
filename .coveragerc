@@ -1,0 +1,24 @@
+
+[run]
+omit =
+    apps.py
+    migrations/*
+    tests/*
+    
+    asgi.py
+    wsgi.py
+    manage.py
+    0001_initial.py
+    unit_testing_see_all_customers.py
+    unit_testing_customer_dashboard.py
+    add_customer_UnitTesting.py
+    add_money_UnitTesting.py 
+    all_transaction_test.py
+    chat_system_unitTesting.py
+    login_unit_testing_SB.py
+    0002_message.py
+    0002_userprofile_phone_no.py
+    0003_merge_0002_message_0002_userprofile_phone_no.py
+    money_transfer_UnitTesting.py
+    profile_update_unit_test_SB.py 
+

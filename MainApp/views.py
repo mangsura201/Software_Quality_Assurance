@@ -47,3 +47,17 @@ def delete_customer(request, customer_id):
     
     # If the request method is GET, render the 'delete_customer.html' template with customer data
     return render(request, 'eva/delete_customer.html', {'customer': customer})
+
+from django.views.generic import TemplateView 
+class HomeView(TemplateView): 
+ template_name = 'OnlineBankingManagement/home.html'
+
+from django.views.generic import TemplateView 
+from django.contrib.auth.decorators import login_required 
+from django.utils.decorators import method_decorator 
+ 
+class AdminView(TemplateView): 
+    template_name='OnlineBankingManagement/home.html' 
+    @method_decorator(login_required) 
+    def dispatch(self, request, *args, **kwargs): 
+        return super().dispatch(request, *args, **kwargs) 
