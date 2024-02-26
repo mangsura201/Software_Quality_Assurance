@@ -1,37 +1,29 @@
-from django.test import TestCase
+from django.test import TestCase, RequestFactory
 from django.contrib.auth.models import User
 from django.urls import reverse
+from MainApp.forms import ProfileUpdateForm
+from MainApp.models import UserProfile
+from MainApp.profile_update_views import update_profile
 
-class YourAppViewsTestCase(TestCase):
+from django.test import TestCase, Client
+
+class ProfileUpdateViewTest(TestCase):
     def setUp(self):
-        # Create a test user
-        self.user = User.objects.create_user(username='testuser', password='testpassword')
-        # Log the user in
-        self.client.login(username='testuser', password='testpassword')
+        self.factory = RequestFactory()
+        self.user = User.objects.create_user(username='testuser', email='test@example.com', password='password')
+        self.customer = UserProfile.objects.create(user=self.user, bank_account_no='123456', phone_no='1234567890')
 
-    def test_home_view(self):
-        response = self.client.get(reverse('home'))
-        self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, 'home.html')
+    def test_update_profile_authenticated_user(self):
+        url = reverse('update_customer', args=[self.customer.id])
+        data = {'first_name': 'John', 'last_name': 'Doe', 'email': 'john@example.com', 'phone_no': '9876543210'}
+        request = self.factory.post(url, data)
+        request.user = self.user
 
-    def test_customer_dashboard_view(self):
-        response = self.client.get(reverse('customer_dashboard'))
-        self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, 'customer_dashboard.html')
-        self.assertEqual(response.context['user'], self.user)
+        response = update_profile(request, self.customer.id)
+        self.assertEqual(response.status_code, 302)  # Redirect status code
 
-    def test_update_profile_view(self):
-        response = self.client.get(reverse('update_profile'))
-        self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, 'update_profile.html')
-
-        # Assuming ProfileUpdateForm has some fields, you can test the form submission
-        form_data = {'field1': 'value1', 'field2': 'value2'}  # Replace with actual form data
-        response = self.client.post(reverse('update_profile'), data=form_data)
-        self.assertEqual(response.status_code, 302)  # Assuming a successful form submission redirects to customer_dashboard
-        self.assertRedirects(response, reverse('customer_dashboard'))
-
-    def test_logout_view(self):
-        response = self.client.get(reverse('logout_view'))
-        self.assertEqual(response.status_code, 302)  # Assuming a successful logout redirects to admin_dashboard
-        self.assertRedirects(response, reverse('admin_dashboard'))
+        # You may want to check if the user's profile has been updated correctly
+        updated_user = User.objects.get(id=self.user.id)
+        self.assertEqual(updated_user.first_name, 'John')
+        self.assertEqual(updated_user.last_name, 'Doe')
+        self.assertEqual(updated_user.email, 'john@example.com')
