@@ -41,8 +41,21 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <!-- Local TOC -->
-              <div class="local-toc"></div>
+              <p class="caption" role="heading"><span class="caption-text">Install:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../install.html">Installation</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../modules.html">MainApp Modules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../modules.html#manage-modules">manage Modules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../modules.html#onlinebankingmanagement-modules">OnlineBankingManagement Modules</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Manage:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../manage.html">manage module</a></li>
+</ul>
+
         </div>
       </div>
     </nav>
@@ -79,34 +92,11 @@
 <div class="viewcode-block" id="DeleteCustomerViewTest.setUp">
 <a class="viewcode-back" href="../../MainApp.html#MainApp.tests.DeleteCustomerViewTest.setUp">[docs]</a>
     <span class="k">def</span> <span class="nf">setUp</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="c1"># Set up a test client and create a user with a corresponding UserProfile</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">client</span> <span class="o">=</span> <span class="n">Client</span><span class="p">()</span>
+        <span class="c1"># Create a test user for authentication</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">user</span> <span class="o">=</span> <span class="n">User</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">create_user</span><span class="p">(</span><span class="n">username</span><span class="o">=</span><span class="s1">&#39;testuser&#39;</span><span class="p">,</span> <span class="n">password</span><span class="o">=</span><span class="s1">&#39;testpassword&#39;</span><span class="p">)</span>
+
+        <span class="c1"># Create a test customer without name and email</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">customer</span> <span class="o">=</span> <span class="n">UserProfile</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="n">user</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">user</span><span class="p">)</span></div>
-
-
-<div class="viewcode-block" id="DeleteCustomerViewTest.test_delete_customer">
-<a class="viewcode-back" href="../../MainApp.html#MainApp.tests.DeleteCustomerViewTest.test_delete_customer">[docs]</a>
-    <span class="k">def</span> <span class="nf">test_delete_customer</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Test the deletion of a customer using a POST request.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="c1"># Log in the user</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">login</span><span class="p">(</span><span class="n">username</span><span class="o">=</span><span class="s1">&#39;testuser&#39;</span><span class="p">,</span> <span class="n">password</span><span class="o">=</span><span class="s1">&#39;testpassword&#39;</span><span class="p">)</span>
-
-        <span class="c1"># Get the delete_customer URL for the specific customer</span>
-        <span class="n">url</span> <span class="o">=</span> <span class="n">reverse</span><span class="p">(</span><span class="s1">&#39;delete_customer&#39;</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">customer</span><span class="o">.</span><span class="n">id</span><span class="p">])</span>
-
-        <span class="c1"># Send a POST request to delete the customer</span>
-        <span class="n">response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
-
-        <span class="c1"># Check if the customer was deleted successfully</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">status_code</span><span class="p">,</span> <span class="mi">302</span><span class="p">)</span>  <span class="c1"># 302 indicates a successful redirect</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">UserProfile</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">customer</span><span class="o">.</span><span class="n">id</span><span class="p">)</span><span class="o">.</span><span class="n">exists</span><span class="p">(),</span> <span class="kc">False</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">User</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">user</span><span class="o">.</span><span class="n">id</span><span class="p">)</span><span class="o">.</span><span class="n">exists</span><span class="p">(),</span> <span class="kc">False</span><span class="p">)</span>
-
-        <span class="c1"># Check the redirect URL after deletion</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">assertRedirects</span><span class="p">(</span><span class="n">response</span><span class="p">,</span> <span class="n">reverse</span><span class="p">(</span><span class="s1">&#39;see_all_customers&#39;</span><span class="p">))</span></div>
 
 
 <div class="viewcode-block" id="DeleteCustomerViewTest.test_delete_customer_get_request">
@@ -125,9 +115,11 @@
         <span class="n">response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
 
         <span class="c1"># Check if the template is rendered and the customer data is present</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">status_code</span><span class="p">,</span> <span class="mi">200</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">assertTemplateUsed</span><span class="p">(</span><span class="n">response</span><span class="p">,</span> <span class="s1">&#39;delete_customer.html&#39;</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">context</span><span class="p">[</span><span class="s1">&#39;customer&#39;</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">customer</span><span class="p">)</span></div>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">status_code</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;Expected status code 200 but got </span><span class="si">{</span><span class="n">response</span><span class="o">.</span><span class="n">status_code</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertTemplateUsed</span><span class="p">(</span><span class="n">response</span><span class="p">,</span> <span class="s1">&#39;eva/delete_customer.html&#39;</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;Template &#39;delete_customer.html&#39; not used&quot;</span><span class="p">)</span>
+
+        <span class="c1"># Check if customer data is present in the context</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">context</span><span class="p">[</span><span class="s1">&#39;customer&#39;</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">customer</span><span class="p">,</span> <span class="s2">&quot;Customer data not present in the context&quot;</span><span class="p">)</span></div>
 </div>
 
 </pre></div>

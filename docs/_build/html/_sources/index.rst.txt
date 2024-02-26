@@ -8,9 +8,22 @@ Welcome to OnlineBankingManagementSystem's documentation!
 
 .. toctree::
    :maxdepth: 2
+   :caption: Install:
+
+   install
+
+
+.. toctree::
+   :maxdepth: 2
    :caption: Contents:
 
+   modules
 
+.. toctree::
+   :maxdepth: 2
+   :caption: Manage:
+
+   manage
 
 Indices and tables
 ==================

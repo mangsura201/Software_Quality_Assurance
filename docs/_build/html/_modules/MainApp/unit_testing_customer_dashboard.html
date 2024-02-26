@@ -41,8 +41,21 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <!-- Local TOC -->
-              <div class="local-toc"></div>
+              <p class="caption" role="heading"><span class="caption-text">Install:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../install.html">Installation</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../modules.html">MainApp Modules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../modules.html#manage-modules">manage Modules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../modules.html#onlinebankingmanagement-modules">OnlineBankingManagement Modules</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Manage:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../manage.html">manage module</a></li>
+</ul>
+
         </div>
       </div>
     </nav>
@@ -68,28 +81,47 @@
            <div itemprop="articleBody">
              
   <h1>Source code for MainApp.unit_testing_customer_dashboard</h1><div class="highlight"><pre>
-<span></span><span class="kn">from</span> <span class="nn">django.test</span> <span class="kn">import</span> <span class="n">TestCase</span>
+<span></span><span class="kn">from</span> <span class="nn">django.test</span> <span class="kn">import</span> <span class="n">TestCase</span><span class="p">,</span> <span class="n">Client</span>
 <span class="kn">from</span> <span class="nn">django.urls</span> <span class="kn">import</span> <span class="n">reverse</span>
 <span class="kn">from</span> <span class="nn">django.contrib.auth.models</span> <span class="kn">import</span> <span class="n">User</span>
-
 <span class="kn">from</span> <span class="nn">.models</span> <span class="kn">import</span> <span class="n">UserProfile</span>
+<span class="kn">from</span> <span class="nn">.customer_dashboard_views</span> <span class="kn">import</span> <span class="n">customer_dashboard</span>
 
-<div class="viewcode-block" id="CustomerDashboardTests">
-<a class="viewcode-back" href="../../MainApp.html#MainApp.unit_testing_customer_dashboard.CustomerDashboardTests">[docs]</a>
-<span class="k">class</span> <span class="nc">CustomerDashboardTests</span><span class="p">(</span><span class="n">TestCase</span><span class="p">):</span>
-<div class="viewcode-block" id="CustomerDashboardTests.setUp">
-<a class="viewcode-back" href="../../MainApp.html#MainApp.unit_testing_customer_dashboard.CustomerDashboardTests.setUp">[docs]</a>
+<div class="viewcode-block" id="CustomerDashboardTestCase">
+<a class="viewcode-back" href="../../MainApp.html#MainApp.unit_testing_customer_dashboard.CustomerDashboardTestCase">[docs]</a>
+<span class="k">class</span> <span class="nc">CustomerDashboardTestCase</span><span class="p">(</span><span class="n">TestCase</span><span class="p">):</span>
+<div class="viewcode-block" id="CustomerDashboardTestCase.setUp">
+<a class="viewcode-back" href="../../MainApp.html#MainApp.unit_testing_customer_dashboard.CustomerDashboardTestCase.setUp">[docs]</a>
     <span class="k">def</span> <span class="nf">setUp</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">user</span> <span class="o">=</span> <span class="n">User</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">create_user</span><span class="p">(</span><span class="n">username</span><span class="o">=</span><span class="s1">&#39;testuser&#39;</span><span class="p">,</span> <span class="n">password</span><span class="o">=</span><span class="s1">&#39;testpassword&#39;</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">login</span><span class="p">(</span><span class="n">username</span><span class="o">=</span><span class="s1">&#39;testuser&#39;</span><span class="p">,</span> <span class="n">password</span><span class="o">=</span><span class="s1">&#39;testpassword&#39;</span><span class="p">)</span></div>
+        <span class="c1"># Create a sample user profile for testing</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">user</span> <span class="o">=</span> <span class="n">User</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">create_user</span><span class="p">(</span><span class="n">username</span><span class="o">=</span><span class="s1">&#39;testuser&#39;</span><span class="p">,</span> <span class="n">password</span><span class="o">=</span><span class="s1">&#39;password&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">user_profile</span> <span class="o">=</span> <span class="n">UserProfile</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">create</span><span class="p">(</span>
+            <span class="n">user</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">user</span><span class="p">,</span>
+            <span class="n">bank_account_no</span><span class="o">=</span><span class="s1">&#39;1234567890&#39;</span><span class="p">,</span>
+            <span class="n">phone_no</span><span class="o">=</span><span class="s1">&#39;1234567890&#39;</span><span class="p">,</span>
+            <span class="n">balance</span><span class="o">=</span><span class="mi">1000</span>
+        <span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="CustomerDashboardTests.test_customer_dashboard_view">
-<a class="viewcode-back" href="../../MainApp.html#MainApp.unit_testing_customer_dashboard.CustomerDashboardTests.test_customer_dashboard_view">[docs]</a>
-    <span class="k">def</span> <span class="nf">test_customer_dashboard_view</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="n">response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">reverse</span><span class="p">(</span><span class="s1">&#39;customer_dashboard&#39;</span><span class="p">))</span>
+<div class="viewcode-block" id="CustomerDashboardTestCase.test_customer_dashboard">
+<a class="viewcode-back" href="../../MainApp.html#MainApp.unit_testing_customer_dashboard.CustomerDashboardTestCase.test_customer_dashboard">[docs]</a>
+    <span class="k">def</span> <span class="nf">test_customer_dashboard</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="c1"># Create a test client</span>
+        <span class="n">client</span> <span class="o">=</span> <span class="n">Client</span><span class="p">()</span>
+        
+        <span class="c1"># Log in the user</span>
+        <span class="n">client</span><span class="o">.</span><span class="n">login</span><span class="p">(</span><span class="n">username</span><span class="o">=</span><span class="s1">&#39;testuser&#39;</span><span class="p">,</span> <span class="n">password</span><span class="o">=</span><span class="s1">&#39;password&#39;</span><span class="p">)</span>
+
+        <span class="c1"># Make a GET request to the view</span>
+        <span class="n">response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">reverse</span><span class="p">(</span><span class="s1">&#39;customer_dashboard&#39;</span><span class="p">))</span>
+
+        <span class="c1"># Check if the response is successful</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">status_code</span><span class="p">,</span> <span class="mi">200</span><span class="p">)</span>
+
+        <span class="c1"># Check if the correct template is being used</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">assertTemplateUsed</span><span class="p">(</span><span class="n">response</span><span class="p">,</span> <span class="s1">&#39;Sayma/customer_dashboard.html&#39;</span><span class="p">)</span>
+
+        <span class="c1"># Check if the user details are present in the context</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">context</span><span class="p">[</span><span class="s1">&#39;user&#39;</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">user</span><span class="p">)</span></div>
 </div>
 

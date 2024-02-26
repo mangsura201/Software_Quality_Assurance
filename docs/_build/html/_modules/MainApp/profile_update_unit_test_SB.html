@@ -41,8 +41,21 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <!-- Local TOC -->
-              <div class="local-toc"></div>
+              <p class="caption" role="heading"><span class="caption-text">Install:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../install.html">Installation</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../modules.html">MainApp Modules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../modules.html#manage-modules">manage Modules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../modules.html#onlinebankingmanagement-modules">OnlineBankingManagement Modules</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Manage:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../manage.html">manage module</a></li>
+</ul>
+
         </div>
       </div>
     </nav>
@@ -68,59 +81,42 @@
            <div itemprop="articleBody">
              
   <h1>Source code for MainApp.profile_update_unit_test_SB</h1><div class="highlight"><pre>
-<span></span><span class="kn">from</span> <span class="nn">django.test</span> <span class="kn">import</span> <span class="n">TestCase</span>
+<span></span><span class="kn">from</span> <span class="nn">django.test</span> <span class="kn">import</span> <span class="n">TestCase</span><span class="p">,</span> <span class="n">RequestFactory</span>
 <span class="kn">from</span> <span class="nn">django.contrib.auth.models</span> <span class="kn">import</span> <span class="n">User</span>
 <span class="kn">from</span> <span class="nn">django.urls</span> <span class="kn">import</span> <span class="n">reverse</span>
+<span class="kn">from</span> <span class="nn">MainApp.forms</span> <span class="kn">import</span> <span class="n">ProfileUpdateForm</span>
+<span class="kn">from</span> <span class="nn">MainApp.models</span> <span class="kn">import</span> <span class="n">UserProfile</span>
+<span class="kn">from</span> <span class="nn">MainApp.profile_update_views</span> <span class="kn">import</span> <span class="n">update_profile</span>
 
-<div class="viewcode-block" id="YourAppViewsTestCase">
-<a class="viewcode-back" href="../../MainApp.html#MainApp.profile_update_unit_test_SB.YourAppViewsTestCase">[docs]</a>
-<span class="k">class</span> <span class="nc">YourAppViewsTestCase</span><span class="p">(</span><span class="n">TestCase</span><span class="p">):</span>
-<div class="viewcode-block" id="YourAppViewsTestCase.setUp">
-<a class="viewcode-back" href="../../MainApp.html#MainApp.profile_update_unit_test_SB.YourAppViewsTestCase.setUp">[docs]</a>
+<span class="kn">from</span> <span class="nn">django.test</span> <span class="kn">import</span> <span class="n">TestCase</span><span class="p">,</span> <span class="n">Client</span>
+
+<div class="viewcode-block" id="ProfileUpdateViewTest">
+<a class="viewcode-back" href="../../MainApp.html#MainApp.profile_update_unit_test_SB.ProfileUpdateViewTest">[docs]</a>
+<span class="k">class</span> <span class="nc">ProfileUpdateViewTest</span><span class="p">(</span><span class="n">TestCase</span><span class="p">):</span>
+<div class="viewcode-block" id="ProfileUpdateViewTest.setUp">
+<a class="viewcode-back" href="../../MainApp.html#MainApp.profile_update_unit_test_SB.ProfileUpdateViewTest.setUp">[docs]</a>
     <span class="k">def</span> <span class="nf">setUp</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="c1"># Create a test user</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">user</span> <span class="o">=</span> <span class="n">User</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">create_user</span><span class="p">(</span><span class="n">username</span><span class="o">=</span><span class="s1">&#39;testuser&#39;</span><span class="p">,</span> <span class="n">password</span><span class="o">=</span><span class="s1">&#39;testpassword&#39;</span><span class="p">)</span>
-        <span class="c1"># Log the user in</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">login</span><span class="p">(</span><span class="n">username</span><span class="o">=</span><span class="s1">&#39;testuser&#39;</span><span class="p">,</span> <span class="n">password</span><span class="o">=</span><span class="s1">&#39;testpassword&#39;</span><span class="p">)</span></div>
+        <span class="bp">self</span><span class="o">.</span><span class="n">factory</span> <span class="o">=</span> <span class="n">RequestFactory</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">user</span> <span class="o">=</span> <span class="n">User</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">create_user</span><span class="p">(</span><span class="n">username</span><span class="o">=</span><span class="s1">&#39;testuser&#39;</span><span class="p">,</span> <span class="n">email</span><span class="o">=</span><span class="s1">&#39;test@example.com&#39;</span><span class="p">,</span> <span class="n">password</span><span class="o">=</span><span class="s1">&#39;password&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">customer</span> <span class="o">=</span> <span class="n">UserProfile</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="n">user</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">user</span><span class="p">,</span> <span class="n">bank_account_no</span><span class="o">=</span><span class="s1">&#39;123456&#39;</span><span class="p">,</span> <span class="n">phone_no</span><span class="o">=</span><span class="s1">&#39;1234567890&#39;</span><span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="YourAppViewsTestCase.test_home_view">
-<a class="viewcode-back" href="../../MainApp.html#MainApp.profile_update_unit_test_SB.YourAppViewsTestCase.test_home_view">[docs]</a>
-    <span class="k">def</span> <span class="nf">test_home_view</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="n">response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">reverse</span><span class="p">(</span><span class="s1">&#39;home&#39;</span><span class="p">))</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">status_code</span><span class="p">,</span> <span class="mi">200</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">assertTemplateUsed</span><span class="p">(</span><span class="n">response</span><span class="p">,</span> <span class="s1">&#39;home.html&#39;</span><span class="p">)</span></div>
+<div class="viewcode-block" id="ProfileUpdateViewTest.test_update_profile_authenticated_user">
+<a class="viewcode-back" href="../../MainApp.html#MainApp.profile_update_unit_test_SB.ProfileUpdateViewTest.test_update_profile_authenticated_user">[docs]</a>
+    <span class="k">def</span> <span class="nf">test_update_profile_authenticated_user</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">url</span> <span class="o">=</span> <span class="n">reverse</span><span class="p">(</span><span class="s1">&#39;update_customer&#39;</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">customer</span><span class="o">.</span><span class="n">id</span><span class="p">])</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;first_name&#39;</span><span class="p">:</span> <span class="s1">&#39;John&#39;</span><span class="p">,</span> <span class="s1">&#39;last_name&#39;</span><span class="p">:</span> <span class="s1">&#39;Doe&#39;</span><span class="p">,</span> <span class="s1">&#39;email&#39;</span><span class="p">:</span> <span class="s1">&#39;john@example.com&#39;</span><span class="p">,</span> <span class="s1">&#39;phone_no&#39;</span><span class="p">:</span> <span class="s1">&#39;9876543210&#39;</span><span class="p">}</span>
+        <span class="n">request</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">factory</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>
+        <span class="n">request</span><span class="o">.</span><span class="n">user</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">user</span>
 
+        <span class="n">response</span> <span class="o">=</span> <span class="n">update_profile</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">customer</span><span class="o">.</span><span class="n">id</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">status_code</span><span class="p">,</span> <span class="mi">302</span><span class="p">)</span>  <span class="c1"># Redirect status code</span>
 
-<div class="viewcode-block" id="YourAppViewsTestCase.test_customer_dashboard_view">
-<a class="viewcode-back" href="../../MainApp.html#MainApp.profile_update_unit_test_SB.YourAppViewsTestCase.test_customer_dashboard_view">[docs]</a>
-    <span class="k">def</span> <span class="nf">test_customer_dashboard_view</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="n">response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">reverse</span><span class="p">(</span><span class="s1">&#39;customer_dashboard&#39;</span><span class="p">))</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">status_code</span><span class="p">,</span> <span class="mi">200</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">assertTemplateUsed</span><span class="p">(</span><span class="n">response</span><span class="p">,</span> <span class="s1">&#39;customer_dashboard.html&#39;</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">context</span><span class="p">[</span><span class="s1">&#39;user&#39;</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">user</span><span class="p">)</span></div>
-
-
-<div class="viewcode-block" id="YourAppViewsTestCase.test_update_profile_view">
-<a class="viewcode-back" href="../../MainApp.html#MainApp.profile_update_unit_test_SB.YourAppViewsTestCase.test_update_profile_view">[docs]</a>
-    <span class="k">def</span> <span class="nf">test_update_profile_view</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="n">response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">reverse</span><span class="p">(</span><span class="s1">&#39;update_profile&#39;</span><span class="p">))</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">status_code</span><span class="p">,</span> <span class="mi">200</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">assertTemplateUsed</span><span class="p">(</span><span class="n">response</span><span class="p">,</span> <span class="s1">&#39;update_profile.html&#39;</span><span class="p">)</span>
-
-        <span class="c1"># Assuming ProfileUpdateForm has some fields, you can test the form submission</span>
-        <span class="n">form_data</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;field1&#39;</span><span class="p">:</span> <span class="s1">&#39;value1&#39;</span><span class="p">,</span> <span class="s1">&#39;field2&#39;</span><span class="p">:</span> <span class="s1">&#39;value2&#39;</span><span class="p">}</span>  <span class="c1"># Replace with actual form data</span>
-        <span class="n">response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">reverse</span><span class="p">(</span><span class="s1">&#39;update_profile&#39;</span><span class="p">),</span> <span class="n">data</span><span class="o">=</span><span class="n">form_data</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">status_code</span><span class="p">,</span> <span class="mi">302</span><span class="p">)</span>  <span class="c1"># Assuming a successful form submission redirects to customer_dashboard</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">assertRedirects</span><span class="p">(</span><span class="n">response</span><span class="p">,</span> <span class="n">reverse</span><span class="p">(</span><span class="s1">&#39;customer_dashboard&#39;</span><span class="p">))</span></div>
-
-
-<div class="viewcode-block" id="YourAppViewsTestCase.test_logout_view">
-<a class="viewcode-back" href="../../MainApp.html#MainApp.profile_update_unit_test_SB.YourAppViewsTestCase.test_logout_view">[docs]</a>
-    <span class="k">def</span> <span class="nf">test_logout_view</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="n">response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">reverse</span><span class="p">(</span><span class="s1">&#39;logout_view&#39;</span><span class="p">))</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">status_code</span><span class="p">,</span> <span class="mi">302</span><span class="p">)</span>  <span class="c1"># Assuming a successful logout redirects to admin_dashboard</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">assertRedirects</span><span class="p">(</span><span class="n">response</span><span class="p">,</span> <span class="n">reverse</span><span class="p">(</span><span class="s1">&#39;admin_dashboard&#39;</span><span class="p">))</span></div>
+        <span class="c1"># You may want to check if the user&#39;s profile has been updated correctly</span>
+        <span class="n">updated_user</span> <span class="o">=</span> <span class="n">User</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">user</span><span class="o">.</span><span class="n">id</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">updated_user</span><span class="o">.</span><span class="n">first_name</span><span class="p">,</span> <span class="s1">&#39;John&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">updated_user</span><span class="o">.</span><span class="n">last_name</span><span class="p">,</span> <span class="s1">&#39;Doe&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">updated_user</span><span class="o">.</span><span class="n">email</span><span class="p">,</span> <span class="s1">&#39;john@example.com&#39;</span><span class="p">)</span></div>
 </div>
 
 </pre></div>
