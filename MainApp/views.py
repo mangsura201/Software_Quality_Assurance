@@ -46,4 +46,4 @@ def delete_customer(request, customer_id):
         return redirect('see_all_customers')
     
     # If the request method is GET, render the 'delete_customer.html' template with customer data
-    return render(request, 'delete_customer.html', {'customer': customer})
+    return render(request, 'eva/delete_customer.html', {'customer': customer})
