@@ -31,3 +31,6 @@ class Transaction(models.Model):
         if not self.transaction_id:
             self.transaction_id = self.generate_unique_transaction_id()
         super().save(*args, **kwargs)
+        
+class Post(models.Model):
+    body = models.TextField()

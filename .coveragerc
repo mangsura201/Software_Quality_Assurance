@@ -1,0 +1,15 @@
+
+[run]
+omit =
+    apps.py
+    migrations/*
+    settings*
+    tests/*
+    urls.py
+    asgi.py
+    wsgi.py
+    manage.py
+    0001_initial.py
+    unit_testing_customer_dashboard.py 
+    unit_testing_see_all_customers.py
+    customer_dashboard_views.py

@@ -108,3 +108,6 @@ def request_zakat(request):
 
 # Real-Time Chat Views (if using Django Channels or similar)
 # Implement chat functionality for both admin and customers"""
+from django.views.generic import TemplateView 
+class HomeView(TemplateView): 
+ template_name = 'OnlineBankingManagement/base.html' 
