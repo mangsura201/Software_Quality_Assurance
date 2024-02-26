@@ -2,7 +2,7 @@
 from django.contrib.auth.models import AnonymousUser
 from django.test import TestCase, RequestFactory
 from django.contrib.auth.models import User
-from .views import custom_login
+from .login_logout_views import custom_login
 
 class CustomLoginViewTestCase(TestCase):
     def setUp(self):
