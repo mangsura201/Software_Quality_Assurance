@@ -1,7 +1,6 @@
 [run]
 omit =
-    apps.py 
-    */migrations/*
+    apps.py
     migrations/*
     settings*
     tests/*
@@ -14,3 +13,7 @@ omit =
     add_money_UnitTesting.py
     
     
+    0001_initial.py
+    unit_testing_customer_dashboard.py 
+    unit_testing_see_all_customers.py
+    customer_dashboard_views.py

@@ -32,6 +32,7 @@ class Transaction(models.Model):
         if not self.transaction_id:
             self.transaction_id = self.generate_unique_transaction_id()
         super().save(*args, **kwargs)
+<<<<<<< HEAD
 
 
 class Message(models.Model):
@@ -40,3 +41,8 @@ class Message(models.Model):
     subject = models.CharField(max_length=255)
     body = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True)
+=======
+        
+class Post(models.Model):
+    body = models.TextField()
+>>>>>>> 62615bc1b85e5176a07671444b0786e27d168e66

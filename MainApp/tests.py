@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 from django.test import TestCase, Client
 from django.urls import reverse
 from django.contrib.auth.models import User
@@ -36,3 +37,5 @@ class DeleteCustomerViewTest(TestCase):
 
 
 >>>>>>> 36d7b73bd8317837136dc243349d904dc80453bf
+=======
+>>>>>>> 62615bc1b85e5176a07671444b0786e27d168e66
