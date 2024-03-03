@@ -6,9 +6,16 @@ from . import views,add_money_views
 
 urlpatterns = [
     path('admin_dashboard/', views.admin_dashboard, name='admin_dashboard'),
+<<<<<<< HEAD
     path('see_all_customers/', see_all_customer_views.see_all_customers, name='see_all_customers'),
     path('customer_dashboard/', customer_dashboard_views.customer_dashboard, name='customer_dashboard'),
     path('see_all_transactions/', all_transaction_views.see_all_transactions, name='see_all_transactions'),
+=======
+    path('see_all_customer/', views.see_all_customer, name='see_all_customer'),
+    path('see_all_transactions/', views.see_all_transactions, name='see_all_transactions'),
+    path('add_new_user/', views.add_new_user, name='add_new_user'),
+    path('login_to_user/', views.login_to_user, name='login_to_user'),
+>>>>>>> 36d7b73bd8317837136dc243349d904dc80453bf
     # Add more URL patterns for other functionalities if needed
     path('money_transfer/', money_transfer_views.money_transfer, name='money_transfer'),
     path('inbox/', chat_system_views.inbox, name='inbox'),

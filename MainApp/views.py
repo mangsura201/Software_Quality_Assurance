@@ -1,9 +1,6 @@
-from django.shortcuts import render, redirect
-from django.contrib.auth.decorators import login_required
-from .models import UserProfile, Transaction
-from django.contrib.auth.models import User
-from django.contrib import messages
+from django.shortcuts import render
 
+<<<<<<< HEAD
 def home(request):
     return render(request, 'home.html')
 def customer_transaction(request, a):
@@ -46,3 +43,7 @@ def delete_customer(request, customer_id):
     
     # If the request method is GET, render the 'delete_customer.html' template with customer data
     return render(request, 'eva/delete_customer.html', {'customer': customer})
+=======
+def admin_dashboard(request):
+    return render(request, 'admin_dashboard.html')
+>>>>>>> 36d7b73bd8317837136dc243349d904dc80453bf

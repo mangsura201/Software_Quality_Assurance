@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 from django.test import TestCase, Client
 from django.urls import reverse
 from django.contrib.auth.models import User
@@ -30,3 +31,8 @@ class DeleteCustomerViewTest(TestCase):
 
         # Check if customer data is present in the context
         self.assertEqual(response.context['customer'], self.customer, "Customer data not present in the context")
+=======
+
+
+
+>>>>>>> 36d7b73bd8317837136dc243349d904dc80453bf
