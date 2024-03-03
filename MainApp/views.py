@@ -4,13 +4,12 @@ from .models import UserProfile, Transaction
 from django.contrib.auth.models import User
 from django.contrib import messages
 
-# Random code for project to Run it perfectly
 def home(request):
     return render(request, 'home.html')
 def customer_transaction(request, a):
     pass
 
-#@login_required
+@login_required
 def admin_dashboard(request):
     return render(request, 'admin_dashboard.html')
 
